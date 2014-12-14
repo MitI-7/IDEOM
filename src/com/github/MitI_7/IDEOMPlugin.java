@@ -27,6 +27,7 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
         editorListener = new EditorListener(ideomConfig.imagePath);
         if (ideomConfig.useWallPaper) {
             editorListener.imageOpacity = ideomConfig.imageOpacity;
+            editorListener.imagePositionNo = ideomConfig.imagePositionNo;
             EditorFactory.getInstance().addEditorFactoryListener(editorListener);
         }
     }
@@ -62,9 +63,11 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
         ideomConfig.useWallPaper = ideomConfigPanel.useWallPaperCheckBox.isSelected();
         ideomConfig.imagePath    = ideomConfigPanel.imagePathTextField.getText();
         ideomConfig.imageOpacity = ideomConfigPanel.imageOpacitySlider.getValue() / 100.0f;
+        ideomConfig.imagePositionNo = ideomConfigPanel.imagePositionComboBox.getSelectedIndex();
 
         editorListener.imagePath = ideomConfig.imagePath;
         editorListener.imageOpacity = ideomConfig.imageOpacity;
+        editorListener.imagePositionNo = ideomConfig.imagePositionNo;
 
         // TODO: 再起動なしで反映できるようにする
         if (0 == Messages.showYesNoDialog("IDE must be restarted for changes to take effect.Would you like to shutdown IDEA?", "Warning!", null)) {
@@ -79,7 +82,8 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
     public boolean isModified() {
         if (!ideomConfigPanel.imagePathTextField.getText().equals(ideomConfig.imagePath) ||
             ideomConfigPanel.useWallPaperCheckBox.isSelected() != ideomConfig.useWallPaper ||
-            ideomConfigPanel.imageOpacitySlider.getValue() != ideomConfig.imageOpacity){
+            ideomConfigPanel.imageOpacitySlider.getValue() != ideomConfig.imageOpacity ||
+            ideomConfigPanel.imagePositionComboBox.getSelectedIndex() != ideomConfig.imagePositionNo){
             return true;
         }
         return false;

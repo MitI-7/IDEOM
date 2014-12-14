@@ -1,5 +1,6 @@
 package com.github.MitI_7;
 
+
 import javax.swing.*;
 import javax.swing.JTextField;
 import javax.swing.JSlider;
@@ -13,11 +14,13 @@ public class IDEOMConfigPanel extends JComponent{
     public JCheckBox useWallPaperCheckBox;
     public JTextField imagePathTextField;
     public JSlider imageOpacitySlider;
+    public JComboBox imagePositionComboBox;
 
     public IDEOMConfigPanel(IDEOMConfig ideomConfig) {
         useWallPaperCheckBox.setSelected(ideomConfig.useWallPaper);
         imagePathTextField.setText(ideomConfig.imagePath);
-        imageOpacitySlider.setValue((int)ideomConfig.imageOpacity);
+        imageOpacitySlider.setValue((int)(ideomConfig.imageOpacity * 100));
+        imagePositionComboBox.setSelectedIndex(ideomConfig.imagePositionNo);
     }
 
     public JPanel get_panel() {

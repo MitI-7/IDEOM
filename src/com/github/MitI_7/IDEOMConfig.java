@@ -13,6 +13,7 @@ public class IDEOMConfig implements ApplicationComponent, JDOMExternalizable{
     public boolean useWallPaper = false;
     public String imagePath = "";
     public float imageOpacity = 0.2f;
+    public int imagePositionNo = 0;
 
     @NotNull
     public String getComponentName() {

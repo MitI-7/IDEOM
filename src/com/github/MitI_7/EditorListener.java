@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 public class EditorListener implements EditorFactoryListener {
     public String imagePath;    // 背景画像の絶対パス
     public float imageOpacity;  // 画像の透明度
+    public int imagePositionNo;   // 画像の表示位置
 
     public EditorListener(@NotNull String imagePath) {
         this.imagePath = imagePath;
@@ -23,7 +24,7 @@ public class EditorListener implements EditorFactoryListener {
 
         try {
             File file = new File(imagePath);
-            Border wallPaper = new WallPaper(ImageIO.read(file), imageOpacity);
+            Border wallPaper = new WallPaper(ImageIO.read(file), imageOpacity, imagePositionNo);
             editor.getContentComponent().setBorder(wallPaper);
         } catch (Exception e) {
             Messages.showErrorDialog(e.toString(), "Error setting background image.");
