@@ -1,0 +1,43 @@
+<idea-plugin version="2">
+  <id>com.github.MitI_7.IDEOM</id>
+  <name>IDEOM</name>
+  <version>0.1</version>
+  <vendor email="MitI_7@hotmail.com" url="https://github.com/MitI-7/IDEOM">MitI_7</vendor>
+
+  <description><![CDATA[
+      Setting Wallpaper
+    ]]></description>
+
+  <change-notes><![CDATA[
+    ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products-->
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+  </extensions>
+
+  <application-components>
+    <component>
+      <implementation-class>com.github.MitI_7.IDEOMPlugin</implementation-class>
+    </component>
+    <component>
+      <implementation-class>com.github.MitI_7.IDEOMConfig</implementation-class>
+    </component>
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
