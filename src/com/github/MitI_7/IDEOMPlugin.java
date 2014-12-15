@@ -21,10 +21,7 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
         ideomConfig = IDEOMConfig.getInstance();
 
         // editorListenerの設定
-        editorListener = new EditorListener(ideomConfig.imagePath);
-        editorListener.useWallPaper = ideomConfig.useWallPaper;
-        editorListener.imageOpacity = ideomConfig.imageOpacity;
-        editorListener.imagePositionNo = ideomConfig.imagePositionNo;
+        editorListener = new EditorListener(ideomConfig.state);
         EditorFactory.getInstance().addEditorFactoryListener(editorListener, new Disposable() {
             @Override
             public void dispose() {
@@ -67,15 +64,8 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
 
     // OK or Apply button
     public void apply() {
-        ideomConfig.useWallPaper = ideomConfigPanel.useWallPaperCheckBox.isSelected();
-        ideomConfig.imagePath    = ideomConfigPanel.imagePathTextField.getText();
-        ideomConfig.imageOpacity = ideomConfigPanel.imageOpacitySlider.getValue() / 100.0f;
-        ideomConfig.imagePositionNo = ideomConfigPanel.imagePositionComboBox.getSelectedIndex();
-
-        editorListener.useWallPaper = ideomConfig.useWallPaper;
-        editorListener.imagePath = ideomConfig.imagePath;
-        editorListener.imageOpacity = ideomConfig.imageOpacity;
-        editorListener.imagePositionNo = ideomConfig.imagePositionNo;
+        ideomConfig.state = ideomConfigPanel.get_state();
+        editorListener.state = ideomConfig.state;
     }
 
     // Cancel button
@@ -83,13 +73,11 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
     }
 
     public boolean isModified() {
-        if (!ideomConfigPanel.imagePathTextField.getText().equals(ideomConfig.imagePath) ||
-            ideomConfigPanel.useWallPaperCheckBox.isSelected() != ideomConfig.useWallPaper ||
-            ideomConfigPanel.imageOpacitySlider.getValue() != ideomConfig.imageOpacity * 100 ||
-            ideomConfigPanel.imagePositionComboBox.getSelectedIndex() != ideomConfig.imagePositionNo){
-            return true;
+        // 設定パネルの状態と設定クラスの状態を比較
+        if (ideomConfigPanel.get_state().equals(ideomConfig.state)) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     // user closes the form

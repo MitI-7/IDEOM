@@ -12,17 +12,14 @@ import org.jetbrains.annotations.NotNull;
 
 
 public class EditorListener implements EditorFactoryListener {
-    public boolean useWallPaper; // 背景画像を表示するかどうか
-    public String imagePath;     // 背景画像の絶対パス
-    public float imageOpacity;   // 画像の透明度
-    public int imagePositionNo;  // 画像の表示位置
+    public IDEOMConfig.State state;
 
-    public EditorListener(@NotNull String imagePath) {
-        this.imagePath = imagePath;
+    public EditorListener(@NotNull IDEOMConfig.State state) {
+        this.state = state;
     }
 
     public void editorCreated(@NotNull EditorFactoryEvent event) {
-        if (!useWallPaper) {
+        if (!state.useWallPaper) {
             return;
         }
 
@@ -32,11 +29,11 @@ public class EditorListener implements EditorFactoryListener {
         if (FileDocumentManager.getInstance().getFile(editor.getDocument()) == null) {
             return;
         }
-        Messages.showErrorDialog(FileDocumentManager.getInstance().getFile(editor.getDocument()).getName(), "Error setting background image.");
+        //Messages.showErrorDialog(FileDocumentManager.getInstance().getFile(editor.getDocument()).getName(), "Error setting background image.");
 
         try {
-            File file = new File(imagePath);
-            Border wallPaper = new WallPaper(ImageIO.read(file), imageOpacity, imagePositionNo);
+            File file = new File(state.imagePath);
+            Border wallPaper = new WallPaper(ImageIO.read(file), state.imageOpacity, state.imagePositionNo);
             editor.getContentComponent().setBorder(wallPaper);
         } catch (Exception e) {
             Messages.showErrorDialog(e.toString(), "Error setting background image.");

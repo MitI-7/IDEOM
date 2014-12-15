@@ -18,10 +18,20 @@ public class IDEOMConfigPanel extends JComponent{
     private JComboBox comboBox1;
 
     public IDEOMConfigPanel(IDEOMConfig ideomConfig) {
-        useWallPaperCheckBox.setSelected(ideomConfig.useWallPaper);
-        imagePathTextField.setText(ideomConfig.imagePath);
-        imageOpacitySlider.setValue((int)(ideomConfig.imageOpacity * 100));
-        imagePositionComboBox.setSelectedIndex(ideomConfig.imagePositionNo);
+        useWallPaperCheckBox.setSelected(ideomConfig.state.useWallPaper);
+        imagePathTextField.setText(ideomConfig.state.imagePath);
+        imageOpacitySlider.setValue((int)(ideomConfig.state.imageOpacity * 100));
+        imagePositionComboBox.setSelectedIndex(ideomConfig.state.imagePositionNo);
+    }
+
+    public IDEOMConfig.State get_state() {
+        IDEOMConfig.State state = new IDEOMConfig.State();
+        state.useWallPaper    = this.useWallPaperCheckBox.isSelected();
+        state.imagePath       = this.imagePathTextField.getText();
+        state.imageOpacity    = this.imageOpacitySlider.getValue() / 100.0f;
+        state.imagePositionNo = this.imagePositionComboBox.getSelectedIndex();
+
+        return state;
     }
 
     public JPanel get_panel() {
