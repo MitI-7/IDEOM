@@ -1,6 +1,5 @@
 package com.github.MitI_7;
 
-import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.editor.EditorFactory;
@@ -78,11 +77,6 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
         editorListener.imagePath = ideomConfig.imagePath;
         editorListener.imageOpacity = ideomConfig.imageOpacity;
         editorListener.imagePositionNo = ideomConfig.imagePositionNo;
-
-        // TODO: 再起動なしで反映できるようにする
-        if (0 == Messages.showYesNoDialog("IDE must be restarted for changes to take effect.Would you like to shutdown IDEA?", "Warning!", null)) {
-            ApplicationManager.getApplication().exit();
-        }
     }
 
     // Cancel button
