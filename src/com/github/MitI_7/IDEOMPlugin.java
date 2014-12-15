@@ -4,10 +4,11 @@ import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.editor.EditorFactory;
+import com.intellij.openapi.Disposable;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.ui.Messages;
-import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
+import org.jetbrains.annotations.NotNull;
 
 
 public class IDEOMPlugin implements ApplicationComponent,Configurable {
@@ -28,13 +29,23 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
         if (ideomConfig.useWallPaper) {
             editorListener.imageOpacity = ideomConfig.imageOpacity;
             editorListener.imagePositionNo = ideomConfig.imagePositionNo;
-            EditorFactory.getInstance().addEditorFactoryListener(editorListener);
+            EditorFactory.getInstance().addEditorFactoryListener(editorListener, new Disposable() {
+                @Override
+                public void dispose() {
+                    editorListener = null;
+                }
+            });
         }
     }
 
     public void disposeComponent() {
         if (editorListener != null) {
-            EditorFactory.getInstance().removeEditorFactoryListener(editorListener);
+            EditorFactory.getInstance().addEditorFactoryListener(editorListener, new Disposable() {
+                @Override
+                public void dispose() {
+                    editorListener = null;
+                }
+            });
         }
     }
 
