@@ -1,5 +1,6 @@
 package com.github.MitI_7;
 
+import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.editor.event.EditorFactoryListener;
 import com.intellij.openapi.editor.event.EditorFactoryEvent;
 import com.intellij.openapi.editor.Editor;
@@ -26,6 +27,13 @@ public class EditorListener implements EditorFactoryListener {
         }
 
         Editor editor = event.getEditor();
+
+        // 通常のedior以外は画像を出さない(Event Logとか)
+        if (FileDocumentManager.getInstance().getFile(editor.getDocument()) == null) {
+            return;
+        }
+        Messages.showErrorDialog(FileDocumentManager.getInstance().getFile(editor.getDocument()).getName(), "Error setting background image.");
+
         try {
             File file = new File(imagePath);
             Border wallPaper = new WallPaper(ImageIO.read(file), imageOpacity, imagePositionNo);
