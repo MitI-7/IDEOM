@@ -21,14 +21,12 @@
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceInterface="com.github.MitI_7.IDEOMConfig" serviceImplementation="com.github.MitI_7.IDEOMConfig"/>
   </extensions>
 
   <application-components>
     <component>
       <implementation-class>com.github.MitI_7.IDEOMPlugin</implementation-class>
-    </component>
-    <component>
-      <implementation-class>com.github.MitI_7.IDEOMConfig</implementation-class>
     </component>
   </application-components>
 

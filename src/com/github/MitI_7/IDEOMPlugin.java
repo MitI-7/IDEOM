@@ -21,8 +21,7 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
     }
 
     public void initComponent() {
-        Application app = ApplicationManager.getApplication();
-        ideomConfig = app.getComponent(IDEOMConfig.class);
+        ideomConfig = IDEOMConfig.getInstance();
 
         // editorListenerの設定
         editorListener = new EditorListener(ideomConfig.imagePath);
@@ -93,7 +92,7 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
     public boolean isModified() {
         if (!ideomConfigPanel.imagePathTextField.getText().equals(ideomConfig.imagePath) ||
             ideomConfigPanel.useWallPaperCheckBox.isSelected() != ideomConfig.useWallPaper ||
-            ideomConfigPanel.imageOpacitySlider.getValue() != ideomConfig.imageOpacity ||
+            ideomConfigPanel.imageOpacitySlider.getValue() != ideomConfig.imageOpacity * 100 ||
             ideomConfigPanel.imagePositionComboBox.getSelectedIndex() != ideomConfig.imagePositionNo){
             return true;
         }

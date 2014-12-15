@@ -1,38 +1,35 @@
 package com.github.MitI_7;
 
-import com.intellij.openapi.util.JDOMExternalizable;
-import com.intellij.openapi.util.DefaultJDOMExternalizer;
-import com.intellij.openapi.util.WriteExternalException;
-import com.intellij.openapi.util.InvalidDataException;
-import com.intellij.openapi.components.ApplicationComponent;
-import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
+import com.intellij.openapi.components.*;
+import com.intellij.util.xmlb.XmlSerializerUtil;
+import org.jetbrains.annotations.Nullable;
 
-
-public class IDEOMConfig implements ApplicationComponent, JDOMExternalizable{
+@State(
+        name = "IDEOM",
+        storages = {
+                @Storage(
+                        file = StoragePathMacros.APP_CONFIG + "/IDEOM_setting.xml"
+                )
+        }
+)
+public class IDEOMConfig implements PersistentStateComponent<IDEOMConfig> {
     public boolean useWallPaper = false;
     public String imagePath = "";
     public float imageOpacity = 0.2f;
     public int imagePositionNo = 0;
 
-    @NotNull
-    public String getComponentName() {
-        return "IDEOMConfig";
+    @Nullable
+    @Override
+    public IDEOMConfig getState() {
+        return this;
     }
 
-    public void initComponent() {
+    @Override
+    public void loadState(IDEOMConfig config) {
+        XmlSerializerUtil.copyBean(config, this);
     }
 
-    public void disposeComponent() {
+    public static IDEOMConfig getInstance() {
+        return ServiceManager.getService(IDEOMConfig.class);
     }
-
-    public void writeExternal(Element element) throws WriteExternalException {
-        DefaultJDOMExternalizer.writeExternal(this, element);
-    }
-
-    public void readExternal(Element element) throws InvalidDataException {
-        DefaultJDOMExternalizer.readExternal(this, element);
-    }
-
-
 }
