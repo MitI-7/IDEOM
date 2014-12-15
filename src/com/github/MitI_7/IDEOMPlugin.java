@@ -1,16 +1,14 @@
 package com.github.MitI_7;
 
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.options.Configurable;
-import com.intellij.openapi.ui.Messages;
 import javax.swing.*;
 import org.jetbrains.annotations.NotNull;
 
 
-public class IDEOMPlugin implements ApplicationComponent,Configurable {
+public class IDEOMPlugin implements ApplicationComponent,Configurable{
     private IDEOMConfigPanel ideomConfigPanel;
     private IDEOMConfig ideomConfig;
     private EditorListener editorListener;
@@ -24,16 +22,16 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
 
         // editorListenerの設定
         editorListener = new EditorListener(ideomConfig.imagePath);
-        if (ideomConfig.useWallPaper) {
-            editorListener.imageOpacity = ideomConfig.imageOpacity;
-            editorListener.imagePositionNo = ideomConfig.imagePositionNo;
-            EditorFactory.getInstance().addEditorFactoryListener(editorListener, new Disposable() {
-                @Override
-                public void dispose() {
-                    editorListener = null;
-                }
-            });
-        }
+        editorListener.useWallPaper = ideomConfig.useWallPaper;
+        editorListener.imageOpacity = ideomConfig.imageOpacity;
+        editorListener.imagePositionNo = ideomConfig.imagePositionNo;
+        EditorFactory.getInstance().addEditorFactoryListener(editorListener, new Disposable() {
+            @Override
+            public void dispose() {
+                editorListener = null;
+            }
+        });
+
     }
 
     public void disposeComponent() {
@@ -74,6 +72,7 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
         ideomConfig.imageOpacity = ideomConfigPanel.imageOpacitySlider.getValue() / 100.0f;
         ideomConfig.imagePositionNo = ideomConfigPanel.imagePositionComboBox.getSelectedIndex();
 
+        editorListener.useWallPaper = ideomConfig.useWallPaper;
         editorListener.imagePath = ideomConfig.imagePath;
         editorListener.imageOpacity = ideomConfig.imageOpacity;
         editorListener.imagePositionNo = ideomConfig.imagePositionNo;
@@ -101,5 +100,5 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
     public String getHelpTopic() {
         return "plugins.IDEOMPlugin";
     }
-
 }
+
