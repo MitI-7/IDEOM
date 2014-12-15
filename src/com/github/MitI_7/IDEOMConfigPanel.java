@@ -15,6 +15,7 @@ public class IDEOMConfigPanel extends JComponent{
     public JTextField imagePathTextField;
     public JSlider imageOpacitySlider;
     public JComboBox imagePositionComboBox;
+    private JComboBox comboBox1;
 
     public IDEOMConfigPanel(IDEOMConfig ideomConfig) {
         useWallPaperCheckBox.setSelected(ideomConfig.useWallPaper);
