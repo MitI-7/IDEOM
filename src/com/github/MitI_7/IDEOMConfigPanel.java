@@ -13,32 +13,40 @@ import com.intellij.openapi.vfs.VirtualFile;
 
 public class IDEOMConfigPanel extends JComponent{
     private JPanel panel;
-
     private JCheckBox useWallPaperCheckBox;
     private TextFieldWithBrowseButton imagePath;
     private JSlider imageOpacitySlider;
     private JComboBox imagePositionComboBox;
     private JComboBox EditorNameComboBox;
 
-    public IDEOMConfigPanel(IDEOMConfig ideomConfig) {
-        useWallPaperCheckBox.setSelected(ideomConfig.state.useWallPaper);
-        imagePath.setText(ideomConfig.state.imagePath);
-        imageOpacitySlider.setValue((int)(ideomConfig.state.imageOpacity * 100));
-        imagePositionComboBox.setSelectedIndex(ideomConfig.state.imagePositionNo);
+    public IDEOMConfig.State state;
+
+    public IDEOMConfigPanel(IDEOMConfig.State state) {
+        this.state = state;
+        Setting setting = state.editorSetting.get("Text Editor");
+        set_setting(setting);
+
         imagePath.addBrowseFolderListener(
                 "Title", "Description", null,
                 new FileChooserDescriptor(true, false, false, false, false, false)
         );
     }
 
-    public IDEOMConfig.State get_state() {
-        IDEOMConfig.State state = new IDEOMConfig.State();
-        state.useWallPaper    = this.useWallPaperCheckBox.isSelected();
-        state.imagePath       = this.imagePath.getText();
-        state.imageOpacity    = this.imageOpacitySlider.getValue() / 100.0f;
-        state.imagePositionNo = this.imagePositionComboBox.getSelectedIndex();
+    public Setting get_setting() {
+        Setting setting = new Setting();
+        setting.useWallPaper    = this.useWallPaperCheckBox.isSelected();
+        setting.imagePath       = this.imagePath.getText();
+        setting.imageOpacity    = this.imageOpacitySlider.getValue() / 100.0f;
+        setting.imagePositionNo = this.imagePositionComboBox.getSelectedIndex();
 
-        return state;
+        return setting;
+    }
+
+    public void set_setting(Setting setting) {
+        useWallPaperCheckBox.setSelected(setting.useWallPaper);
+        imagePath.setText(setting.imagePath);
+        imageOpacitySlider.setValue((int)(setting.imageOpacity * 100));
+        imagePositionComboBox.setSelectedIndex(setting.imagePositionNo);
     }
 
     public JPanel get_panel() {

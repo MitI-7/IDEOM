@@ -2,6 +2,8 @@ package com.github.MitI_7;
 
 import com.intellij.openapi.components.*;
 import com.intellij.util.xmlb.XmlSerializerUtil;
+import java.util.Map;
+import java.util.HashMap;
 import org.jetbrains.annotations.Nullable;
 
 
@@ -16,23 +18,11 @@ import org.jetbrains.annotations.Nullable;
 )
 public class IDEOMConfig implements PersistentStateComponent<IDEOMConfig.State> {
     public static final class State {
-        public boolean useWallPaper = false;
-        public String imagePath = "";
-        public float imageOpacity = 0.2f;
-        public int imagePositionNo = 0;
+        public Map<String, Setting> editorSetting = new HashMap<String, Setting>();
 
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj) {return true;}
-            if (obj == null) {return false;}
-
-            IDEOMConfig.State state = (IDEOMConfig.State)obj;
-            if (this.useWallPaper != state.useWallPaper) {return false;}
-            if (!this.imagePath.equals(state.imagePath)) {return false;}
-            if (this.imageOpacity != state.imageOpacity) {return false;}
-            if (this.imagePositionNo != state.imagePositionNo) {return false;}
-
-            return true;
+        public State() {
+            Setting s = new Setting();
+            this.editorSetting.put("Text Editor", s);
         }
     }
 

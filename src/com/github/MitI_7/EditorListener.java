@@ -19,7 +19,8 @@ public class EditorListener implements EditorFactoryListener {
     }
 
     public void editorCreated(@NotNull EditorFactoryEvent event) {
-        if (!state.useWallPaper) {
+        Setting setting = state.editorSetting.get("Text Editor");
+        if (!setting.useWallPaper) {
             return;
         }
 
@@ -32,8 +33,8 @@ public class EditorListener implements EditorFactoryListener {
         //Messages.showErrorDialog(FileDocumentManager.getInstance().getFile(editor.getDocument()).getName(), "Error setting background image.");
 
         try {
-            File file = new File(state.imagePath);
-            Border wallPaper = new WallPaper(ImageIO.read(file), state.imageOpacity, state.imagePositionNo);
+            File file = new File(setting.imagePath);
+            Border wallPaper = new WallPaper(ImageIO.read(file), setting.imageOpacity, setting.imagePositionNo);
             editor.getContentComponent().setBorder(wallPaper);
         } catch (Exception e) {
             Messages.showErrorDialog(e.toString(), "Error setting background image.");

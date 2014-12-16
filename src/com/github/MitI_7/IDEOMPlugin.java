@@ -56,15 +56,15 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
     }
 
     public JComponent createComponent() {
-        if (ideomConfigPanel == null && ideomConfig != null) {
-            ideomConfigPanel = new IDEOMConfigPanel(ideomConfig);
+        if (ideomConfigPanel == null && ideomConfig != null && ideomConfig.state != null) {
+            ideomConfigPanel = new IDEOMConfigPanel(ideomConfig.state);
         }
         return ideomConfigPanel.get_panel();
     }
 
     // OK or Apply button
     public void apply() {
-        ideomConfig.state = ideomConfigPanel.get_state();
+        ideomConfig.state.editorSetting.put("Text Editor",ideomConfigPanel.get_setting());
         editorListener.state = ideomConfig.state;
     }
 
@@ -74,9 +74,11 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
 
     public boolean isModified() {
         // 設定パネルの状態と設定クラスの状態を比較
-        if (ideomConfigPanel.get_state().equals(ideomConfig.state)) {
+        /*
+        if (ideomConfigPanel.get_setting().equals(ideomConfig.state.)) {
             return false;
         }
+        */
         return true;
     }
 
