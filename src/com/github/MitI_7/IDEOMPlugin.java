@@ -64,7 +64,8 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
 
     // OK or Apply button
     public void apply() {
-        ideomConfig.state.editorSetting.put("Text Editor",ideomConfigPanel.get_setting());
+        Setting nowSetting = ideomConfigPanel.get_setting();
+        ideomConfig.state.editorSetting.put(nowSetting.editorName, nowSetting);
         editorListener.state = ideomConfig.state;
     }
 
@@ -73,12 +74,12 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
     }
 
     public boolean isModified() {
-        // 設定パネルの状態と設定クラスの状態を比較
-        /*
-        if (ideomConfigPanel.get_setting().equals(ideomConfig.state.)) {
+        // 設定パネルの状態と設定クラスの状態を比較(表示しているEditorNameのもののみ)
+        Setting nowSetting = ideomConfigPanel.get_setting();
+        if (nowSetting.equals(ideomConfig.state.editorSetting.get(nowSetting.editorName))) {
             return false;
         }
-        */
+
         return true;
     }
 

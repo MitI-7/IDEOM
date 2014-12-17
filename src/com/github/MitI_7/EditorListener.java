@@ -8,6 +8,8 @@ import com.intellij.openapi.ui.Messages;
 import javax.swing.border.Border;
 import javax.imageio.ImageIO;
 import java.io.File;
+
+import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -19,18 +21,20 @@ public class EditorListener implements EditorFactoryListener {
     }
 
     public void editorCreated(@NotNull EditorFactoryEvent event) {
-        Setting setting = state.editorSetting.get("Text Editor");
-        if (!setting.useWallPaper) {
-            return;
-        }
-
         Editor editor = event.getEditor();
+        VirtualFile v = FileDocumentManager.getInstance().getFile(editor.getDocument());
+        Setting setting = state.editorSetting.get("Default");
 
-        // 通常のedior以外は画像を出さない(Event Logとか)
-        if (FileDocumentManager.getInstance().getFile(editor.getDocument()) == null) {
-            return;
+        // editor名が取得できたら，その設定を取得
+        if (v != null) {
+            String editorName = v.getName();
+            if (state.editorSetting.containsKey(editorName)) {
+                setting = state.editorSetting.get(editorName);
+            }
+            //Messages.showErrorDialog(editorName, "Error setting background image.");
         }
-        //Messages.showErrorDialog(FileDocumentManager.getInstance().getFile(editor.getDocument()).getName(), "Error setting background image.");
+
+        if (!setting.useWallPaper || setting.imagePath.equals("")) {return;}
 
         try {
             File file = new File(setting.imagePath);

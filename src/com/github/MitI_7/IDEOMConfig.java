@@ -22,7 +22,9 @@ public class IDEOMConfig implements PersistentStateComponent<IDEOMConfig.State> 
 
         public State() {
             Setting s = new Setting();
-            this.editorSetting.put("Text Editor", s);
+            this.editorSetting.put("Default", s);
+            // TODO:pycharmのときだけ追加
+            this.editorSetting.put("Python Console", s);
         }
     }
 
