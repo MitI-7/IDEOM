@@ -23,7 +23,6 @@
             <properties>
               <model>
                 <item value="Default"/>
-                <item value="Python Console"/>
               </model>
             </properties>
           </component>

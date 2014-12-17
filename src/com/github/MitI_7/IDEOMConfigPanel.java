@@ -26,6 +26,12 @@ public class IDEOMConfigPanel extends JComponent{
         Setting setting = state.editorSetting.get("Default");
         set_setting(setting);
 
+        // 設定にあるeditorNameをすべて追加
+        for (String editorName : state.editorSetting.keySet()) {
+            if (editorName.equals("Default")) {continue;}
+            editorNameComboBox.addItem(editorName);
+        }
+
         imagePath.addBrowseFolderListener(
                 "Select Image File", "", null,
                 new FileChooserDescriptor(true, false, false, false, false, false)

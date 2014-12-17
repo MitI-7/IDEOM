@@ -28,7 +28,6 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
                 editorListener = null;
             }
         });
-
     }
 
     public void disposeComponent() {
