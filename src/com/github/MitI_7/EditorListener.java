@@ -8,6 +8,8 @@ import com.intellij.openapi.ui.Messages;
 import javax.swing.border.Border;
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
@@ -28,8 +30,20 @@ public class EditorListener implements EditorFactoryListener {
         // editor名が取得でき，その設定があるなら取得する
         if (v != null) {
             String editorName = v.getName();
-            if (state.editorSetting.containsKey(editorName)) {
-                setting = state.editorSetting.get(editorName);
+
+            // 設定にあるeditorNameからマッチするものを探す
+            for (String editorNameInSetting : state.editorSetting.keySet()) {
+                Boolean isMatched = false;
+                try {
+                    isMatched = editorName.matches(editorNameInSetting);
+                }
+                catch (Exception e) {
+                    Messages.showErrorDialog(e.toString(), "Error setting background image.");
+                }
+                if (isMatched) {
+                    setting = state.editorSetting.get(editorNameInSetting);
+                    break;
+                }
             }
             //Messages.showErrorDialog(editorName, "Error setting background image.");
         }
