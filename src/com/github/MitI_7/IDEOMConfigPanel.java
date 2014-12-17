@@ -6,6 +6,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
+import com.intellij.openapi.ui.InputValidator;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import java.awt.event.ActionEvent;
@@ -19,13 +20,15 @@ public class IDEOMConfigPanel extends JComponent{
     private TextFieldWithBrowseButton imagePath;
     private JSlider imageOpacitySlider;
     private JComboBox imagePositionComboBox;
-    private JButton addEditorButton;
+    private JButton addEditorNameButton;
+    private JButton deleteEditorNameButton;
 
     public IDEOMConfig.State state;
 
     public IDEOMConfigPanel(IDEOMConfig.State state) {
         this.state = state;
         Setting setting = state.editorSetting.get("Default");
+        deleteEditorNameButton.setEnabled(false);
         set_setting(setting);
 
         // 設定にあるeditorNameをすべて追加
@@ -38,19 +41,9 @@ public class IDEOMConfigPanel extends JComponent{
                 "Select Image File", "", null,
                 new FileChooserDescriptor(true, false, false, false, false, false)
         );
-        addEditorButton.addActionListener(new AddEditorName());
-
         editorNameComboBox.addActionListener(new SelectEditorName());
-    }
-
-    private class AddEditorName implements ActionListener {
-        public void actionPerformed(ActionEvent e){
-            String editorName = Messages.showInputDialog("Input Editor Name", "Input Dialog", null);
-            editorNameComboBox.addItem(editorName);
-            Setting s = new Setting();
-            state.editorSetting.put(editorName, s);
-            set_setting(s);
-        }
+        addEditorNameButton.addActionListener(new AddEditorName());
+        deleteEditorNameButton.addActionListener(new DeleteEditorName());
     }
 
     // editorNameComboBoxで選択された設定を設定する
@@ -58,6 +51,50 @@ public class IDEOMConfigPanel extends JComponent{
         public void actionPerformed(ActionEvent e){
             String editorName = (String)editorNameComboBox.getSelectedItem();
             set_setting(state.editorSetting.get(editorName));
+
+            if (editorName.equals("Default")) {
+                deleteEditorNameButton.setEnabled(false);
+            }
+            else {
+                deleteEditorNameButton.setEnabled(true);
+            }
+        }
+    }
+
+    private class AddEditorName implements ActionListener {
+        public void actionPerformed(ActionEvent e){
+            final String editorName = Messages.showInputDialog("Create New Editor Setting", "Input Dialog", null, "",
+                    new InputValidator() {
+                        // FIX:ダイアログが生成されたときはOKが有効になってる(押せはしない)けどどう直すの？
+                         public boolean checkInput(String inputString) {
+                             if (inputString == null || inputString.equals("")) { return false; }
+                             if (inputString.length() >= 20) {return false;}
+                             if (state.editorSetting.keySet().contains(inputString)) {return false;}
+                             else {return true;}
+                         }
+                         public boolean canClose(String inputString) { return true; }
+                     });
+
+            if (editorName == null) {
+                return;
+            }
+            editorNameComboBox.addItem(editorName);
+            Setting s = new Setting();
+            state.editorSetting.put(editorName, s);
+            editorNameComboBox.setSelectedItem(editorName);
+            set_setting(s);
+        }
+    }
+
+    private class DeleteEditorName implements ActionListener {
+        public void actionPerformed(ActionEvent e){
+            String editorName = (String)editorNameComboBox.getSelectedItem();
+            if (0 == Messages.showYesNoDialog("Delete " + editorName, "Caution!", null)) {
+                editorNameComboBox.removeItem(editorName);
+                state.editorSetting.remove(editorName);
+                editorNameComboBox.setSelectedIndex(0);
+                set_setting(state.editorSetting.get("Default"));
+            }
         }
     }
 
