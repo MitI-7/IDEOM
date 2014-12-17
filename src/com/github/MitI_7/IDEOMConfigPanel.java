@@ -6,6 +6,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,11 +14,12 @@ import java.awt.event.ActionListener;
 
 public class IDEOMConfigPanel extends JComponent{
     private JPanel panel;
+    private JComboBox editorNameComboBox;
     private JCheckBox useWallPaperCheckBox;
     private TextFieldWithBrowseButton imagePath;
     private JSlider imageOpacitySlider;
     private JComboBox imagePositionComboBox;
-    private JComboBox editorNameComboBox;
+    private JButton addEditorButton;
 
     public IDEOMConfig.State state;
 
@@ -36,11 +38,23 @@ public class IDEOMConfigPanel extends JComponent{
                 "Select Image File", "", null,
                 new FileChooserDescriptor(true, false, false, false, false, false)
         );
-        editorNameComboBox.addActionListener(new Act());
+        addEditorButton.addActionListener(new AddEditorName());
+
+        editorNameComboBox.addActionListener(new SelectEditorName());
+    }
+
+    private class AddEditorName implements ActionListener {
+        public void actionPerformed(ActionEvent e){
+            String editorName = Messages.showInputDialog("Input Editor Name", "Input Dialog", null);
+            editorNameComboBox.addItem(editorName);
+            Setting s = new Setting();
+            state.editorSetting.put(editorName, s);
+            set_setting(s);
+        }
     }
 
     // editorNameComboBoxで選択された設定を設定する
-    class Act implements ActionListener {
+    private class SelectEditorName implements ActionListener {
         public void actionPerformed(ActionEvent e){
             String editorName = (String)editorNameComboBox.getSelectedItem();
             set_setting(state.editorSetting.get(editorName));

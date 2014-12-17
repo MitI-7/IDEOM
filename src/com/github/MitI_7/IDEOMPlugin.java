@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class IDEOMPlugin implements ApplicationComponent,Configurable{
     private IDEOMConfigPanel ideomConfigPanel;
-    private IDEOMConfig ideomConfig;
+    private static IDEOMConfig ideomConfig;
     private EditorListener editorListener;
 
     public IDEOMPlugin() {

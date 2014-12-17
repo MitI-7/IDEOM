@@ -25,7 +25,7 @@ public class EditorListener implements EditorFactoryListener {
         VirtualFile v = FileDocumentManager.getInstance().getFile(editor.getDocument());
         Setting setting = state.editorSetting.get("Default");
 
-        // editor名が取得できたら，その設定を取得
+        // editor名が取得でき，その設定があるなら取得する
         if (v != null) {
             String editorName = v.getName();
             if (state.editorSetting.containsKey(editorName)) {

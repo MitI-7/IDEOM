@@ -33,6 +33,7 @@ public class IDEOMConfig implements PersistentStateComponent<IDEOMConfig.State> 
         // PyCharm系のときの設定
         if (versionName.contains("PyCharm")) {
             this.state.editorSetting.put("Python Console", s);
+            this.state.editorSetting.put("*.py", s);
         }
     }
 
