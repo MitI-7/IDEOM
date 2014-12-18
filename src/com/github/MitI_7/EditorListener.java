@@ -8,8 +8,6 @@ import com.intellij.openapi.ui.Messages;
 import javax.swing.border.Border;
 import javax.imageio.ImageIO;
 import java.io.File;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
@@ -52,7 +50,7 @@ public class EditorListener implements EditorFactoryListener {
 
         try {
             File file = new File(setting.imagePath);
-            Border wallPaper = new WallPaper(ImageIO.read(file), setting.imageOpacity, setting.imagePositionNo);
+            Border wallPaper = new WallPaper(ImageIO.read(file), setting);
             editor.getContentComponent().setBorder(wallPaper);
         } catch (Exception e) {
             Messages.showErrorDialog(e.toString(), "Error setting background image.");

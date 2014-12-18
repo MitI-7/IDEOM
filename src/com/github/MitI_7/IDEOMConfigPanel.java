@@ -19,9 +19,10 @@ public class IDEOMConfigPanel extends JComponent{
     private JCheckBox useWallPaperCheckBox;
     private TextFieldWithBrowseButton imagePath;
     private JSlider imageOpacitySlider;
-    private JComboBox imagePositionComboBox;
     private JButton addEditorNameButton;
     private JButton deleteEditorNameButton;
+    private JComboBox imageHorizonPositionComboBox;
+    private JComboBox imageVerticalPositionComboBox;
 
     public IDEOMConfig.State state;
 
@@ -104,7 +105,8 @@ public class IDEOMConfigPanel extends JComponent{
         setting.useWallPaper    = this.useWallPaperCheckBox.isSelected();
         setting.imagePath       = this.imagePath.getText();
         setting.imageOpacity    = this.imageOpacitySlider.getValue() / 100.0f;
-        setting.imagePositionNo = this.imagePositionComboBox.getSelectedIndex();
+        setting.imageHorizonPositionNo = this.imageHorizonPositionComboBox.getSelectedIndex();
+        setting.imageVerticalPositionNo = this.imageVerticalPositionComboBox.getSelectedIndex();
 
         return setting;
     }
@@ -113,7 +115,8 @@ public class IDEOMConfigPanel extends JComponent{
         this.useWallPaperCheckBox.setSelected(setting.useWallPaper);
         this.imagePath.setText(setting.imagePath);
         this.imageOpacitySlider.setValue((int)(setting.imageOpacity * 100));
-        this.imagePositionComboBox.setSelectedIndex(setting.imagePositionNo);
+        this.imageHorizonPositionComboBox.setSelectedIndex(setting.imageHorizonPositionNo);
+        this.imageVerticalPositionComboBox.setSelectedIndex(setting.imageVerticalPositionNo);
     }
 
     public JPanel get_panel() {
