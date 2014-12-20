@@ -11,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
 public class IDEOMPlugin implements ApplicationComponent,Configurable {
     private IDEOMConfigPanel ideomConfigPanel;
     private IDEOMConfig ideomConfig;
-    private EditorListener editorListener;
 
     public IDEOMPlugin() {
         super();
@@ -19,26 +18,9 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
 
     public void initComponent() {
         ideomConfig = IDEOMConfig.getInstance();
-
-        // editorListenerの設定
-        editorListener = new EditorListener(ideomConfig.state);
-        EditorFactory.getInstance().addEditorFactoryListener(editorListener, new Disposable() {
-            @Override
-            public void dispose() {
-                editorListener = null;
-            }
-        });
     }
 
     public void disposeComponent() {
-        if (editorListener != null) {
-            EditorFactory.getInstance().addEditorFactoryListener(editorListener, new Disposable() {
-                @Override
-                public void dispose() {
-                    editorListener = null;
-                }
-            });
-        }
     }
 
     @NotNull
@@ -65,7 +47,6 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable {
     public void apply() {
         EditorSetting nowEditorSetting = ideomConfigPanel.get_editorSetting();
         ideomConfig.state.editorSetting.put(nowEditorSetting.editorName, nowEditorSetting);
-        editorListener.state = ideomConfig.state;
 
         SoundSetting nowSoundSetting = ideomConfigPanel.get_soundSetting();
         ideomConfig.state.soundSetting.put(nowSoundSetting.eventName, nowSoundSetting);
