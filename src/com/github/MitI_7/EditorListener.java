@@ -23,7 +23,7 @@ public class EditorListener implements EditorFactoryListener {
     public void editorCreated(@NotNull EditorFactoryEvent event) {
         Editor editor = event.getEditor();
         VirtualFile v = FileDocumentManager.getInstance().getFile(editor.getDocument());
-        Setting setting = state.editorSetting.get("Default");
+        EditorSetting editorSetting = state.editorSetting.get("Default");
 
         // editor名が取得でき，その設定があるなら取得する
         if (v != null) {
@@ -39,18 +39,18 @@ public class EditorListener implements EditorFactoryListener {
                     Messages.showErrorDialog(e.toString(), "Error setting background image.");
                 }
                 if (isMatched) {
-                    setting = state.editorSetting.get(editorNameInSetting);
+                    editorSetting = state.editorSetting.get(editorNameInSetting);
                     break;
                 }
             }
             //Messages.showErrorDialog(editorName, "Error setting background image.");
         }
 
-        if (!setting.useWallPaper || setting.imagePath.equals("")) {return;}
+        if (!editorSetting.useWallPaper || editorSetting.imagePath.equals("")) {return;}
 
         try {
-            File file = new File(setting.imagePath);
-            Border wallPaper = new WallPaper(ImageIO.read(file), setting);
+            File file = new File(editorSetting.imagePath);
+            Border wallPaper = new WallPaper(ImageIO.read(file), editorSetting);
             editor.getContentComponent().setBorder(wallPaper);
         } catch (Exception e) {
             Messages.showErrorDialog(e.toString(), "Error setting background image.");

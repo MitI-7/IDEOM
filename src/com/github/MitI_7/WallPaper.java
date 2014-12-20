@@ -6,21 +6,21 @@ import java.awt.*;
 
 public class WallPaper implements Border {
     private Image image;
-    private Setting setting;
+    private EditorSetting editorSetting;
 
-    public WallPaper(Image image, Setting setting) {
+    public WallPaper(Image image, EditorSetting editorSetting) {
         this.image = image;
-        this.setting = setting;
+        this.editorSetting = editorSetting;
     }
 
     public void paintBorder(Component component, Graphics graphics, int x, int y, int width, int height) {
         Graphics2D graphics2 = (Graphics2D) graphics;
-        graphics2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, this.setting.imageOpacity));
+        graphics2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, this.editorSetting.imageOpacity));
 
         // 表示位置の計算
         Rectangle rect = ((EditorComponentImpl) component).getVisibleRect();
         int position_x = 0;
-        switch (this.setting.imageHorizonPositionNo) {
+        switch (this.editorSetting.imageHorizonPositionNo) {
             // 右に表示
             case 0:
                 position_x = rect.x;
@@ -35,7 +35,7 @@ public class WallPaper implements Border {
                 break;
         }
         int position_y = 0;
-        switch (this.setting.imageVerticalPositionNo) {
+        switch (this.editorSetting.imageVerticalPositionNo) {
             // 上に表示
             case 0:
                 position_y = rect.y;

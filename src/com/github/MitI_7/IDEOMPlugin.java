@@ -8,7 +8,7 @@ import javax.swing.*;
 import org.jetbrains.annotations.NotNull;
 
 
-public class IDEOMPlugin implements ApplicationComponent,Configurable{
+public class IDEOMPlugin implements ApplicationComponent,Configurable {
     private IDEOMConfigPanel ideomConfigPanel;
     private IDEOMConfig ideomConfig;
     private EditorListener editorListener;
@@ -63,9 +63,12 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
 
     // OK or Apply button
     public void apply() {
-        Setting nowSetting = ideomConfigPanel.get_setting();
-        ideomConfig.state.editorSetting.put(nowSetting.editorName, nowSetting);
+        EditorSetting nowEditorSetting = ideomConfigPanel.get_editorSetting();
+        ideomConfig.state.editorSetting.put(nowEditorSetting.editorName, nowEditorSetting);
         editorListener.state = ideomConfig.state;
+
+        SoundSetting nowSoundSetting = ideomConfigPanel.get_soundSetting();
+        ideomConfig.state.soundSetting.put(nowSoundSetting.eventName, nowSoundSetting);
     }
 
     // Cancel button
@@ -74,12 +77,17 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
 
     public boolean isModified() {
         // 設定パネルの状態と設定クラスの状態を比較(表示しているEditorNameのもののみ)
-        Setting nowSetting = ideomConfigPanel.get_setting();
-        if (nowSetting.equals(ideomConfig.state.editorSetting.get(nowSetting.editorName))) {
-            return false;
+        EditorSetting nowEditorSetting = ideomConfigPanel.get_editorSetting();
+        if (!nowEditorSetting.equals(ideomConfig.state.editorSetting.get(nowEditorSetting.editorName))) {
+            return true;
         }
 
-        return true;
+        SoundSetting nowSoundSetting = ideomConfigPanel.get_soundSetting();
+        if (!nowSoundSetting.equals(ideomConfig.state.soundSetting.get(nowSoundSetting.eventName))) {
+            return true;
+        }
+
+        return false;
     }
 
     // user closes the form
@@ -90,5 +98,6 @@ public class IDEOMPlugin implements ApplicationComponent,Configurable{
     public String getHelpTopic() {
         return "plugins.IDEOMPlugin";
     }
+
 }
 

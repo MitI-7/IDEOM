@@ -31,7 +31,9 @@
   </application-components>
 
   <project-components>
-    <!-- Add your project components here -->
+    <component>
+      <implementation-class>com.github.MitI_7.EventListener</implementation-class>
+    </component>
   </project-components>
 
   <actions>
