@@ -51,12 +51,12 @@ public class IDEOMConfigPanel extends JComponent{
             editorNameComboBox.addItem(editorName);
         }
 
-        useWallPaperCheckBox.addActionListener(new ActionListener() {
-                                                   @Override
-                                                   public void actionPerformed(ActionEvent e) {
-                                                       set_editorOptionEnable(useWallPaperCheckBox.isSelected());
-                                                   }
-                                               });
+        useWallPaperCheckBox.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                set_editorOptionEnable(useWallPaperCheckBox.isSelected());
+            }
+        });
 
         imagePath.addBrowseFolderListener(
                 "Select Image File", "", null,
@@ -80,11 +80,11 @@ public class IDEOMConfigPanel extends JComponent{
         }
 
         useSoundCheckBox.addActionListener(new ActionListener() {
-                                               @Override
-                                               public void actionPerformed(ActionEvent e) {
-                                                   set_soundOptionEnable(useSoundCheckBox.isSelected());
-                                               }
-                                           });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                set_soundOptionEnable(useSoundCheckBox.isSelected());
+            }
+        });
 
         soundPath.addBrowseFolderListener(
                 "Select Image File", "", null,
@@ -99,6 +99,7 @@ public class IDEOMConfigPanel extends JComponent{
         public void actionPerformed(ActionEvent e){
             String editorName = (String)editorNameComboBox.getSelectedItem();
             set_editorSetting(state.editorSetting.get(editorName));
+            set_editorOptionEnable(state.editorSetting.get(editorName).useWallPaper);
 
             if (editorName.equals(EditorSetting.DEFALUT)) {
                 deleteEditorNameButton.setEnabled(false);
@@ -106,6 +107,7 @@ public class IDEOMConfigPanel extends JComponent{
             else {
                 deleteEditorNameButton.setEnabled(true);
             }
+
         }
     }
 
@@ -153,6 +155,7 @@ public class IDEOMConfigPanel extends JComponent{
         public void actionPerformed(ActionEvent e){
             String eventName = (String)eventNameComboBox.getSelectedItem();
             set_soundSetting(state.soundSetting.get(eventName));
+            set_soundOptionEnable(state.soundSetting.get(eventName).useSound);
         }
     }
 
