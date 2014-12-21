@@ -26,13 +26,13 @@
 
   <application-components>
     <component>
-      <implementation-class>com.github.MitI_7.IDEOMPlugin</implementation-class>
+      <implementation-class>com.github.MitI_7.IDEOMApplicationPlugin</implementation-class>
     </component>
   </application-components>
 
   <project-components>
     <component>
-      <implementation-class>com.github.MitI_7.EventListener</implementation-class>
+      <implementation-class>com.github.MitI_7.IDEOMProjectPlugin</implementation-class>
     </component>
   </project-components>
 
