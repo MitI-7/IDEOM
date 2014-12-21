@@ -46,6 +46,4 @@ public class IDEOMProjectPlugin implements ProjectComponent {
         }
     }
 
-
-
 }

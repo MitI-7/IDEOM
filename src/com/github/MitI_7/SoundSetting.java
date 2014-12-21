@@ -29,6 +29,8 @@ public class SoundSetting {
     // イベント名
     public static final String PROJECTOPEN = "Project Open";
     public static final String PROJECTCLOSE = "Project Close";
-    public static final List<String> eventNameList = asList(PROJECTOPEN, PROJECTCLOSE);
+    public static final String RUN = "Run";
+    public static final String RUNERROR = "Run Error";
+    public static final List<String> eventNameList = asList(RUN, RUNERROR, PROJECTOPEN, PROJECTCLOSE);
 
 }
