@@ -1,8 +1,6 @@
 package com.github.MitI_7;
 
 import com.intellij.openapi.components.ApplicationComponent;
-import com.intellij.openapi.editor.EditorFactory;
-import com.intellij.openapi.Disposable;
 import com.intellij.openapi.options.Configurable;
 import javax.swing.*;
 import org.jetbrains.annotations.NotNull;

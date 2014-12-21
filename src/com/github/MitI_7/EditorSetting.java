@@ -1,5 +1,9 @@
 package com.github.MitI_7;
 
+import com.intellij.openapi.application.ApplicationInfo;
+import java.util.List;
+import static java.util.Arrays.asList;
+
 
 public class EditorSetting {
     public String editorName = "";
@@ -24,4 +28,8 @@ public class EditorSetting {
 
         return true;
     }
+
+    public static final String DEFALUT = "Default";
+    public static final String PYTHONCONSOLE = "Python Console";
+    public static List<String> editorNameList = ApplicationInfo.getInstance().getVersionName().contains("PyCharm") ? asList(DEFALUT, PYTHONCONSOLE): asList(DEFALUT);
 }

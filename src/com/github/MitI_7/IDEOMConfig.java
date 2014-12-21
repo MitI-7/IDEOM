@@ -1,6 +1,5 @@
 package com.github.MitI_7;
 
-import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.components.*;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import java.util.Map;
@@ -26,25 +25,16 @@ public class IDEOMConfig implements PersistentStateComponent<IDEOMConfig.State> 
     public IDEOMConfig.State state = new State();
 
     public IDEOMConfig() {
-        /*
-        editor
-         */
-        EditorSetting es = new EditorSetting();
-        this.state.editorSetting.put("Default", es);
-
-        String versionName = ApplicationInfo.getInstance().getVersionName();
-        // PyCharm系のときの設定
-        if (versionName.contains("PyCharm")) {
-            this.state.editorSetting.put("Python Console", es);
-            this.state.editorSetting.put(".*.py", es);
+        // editor
+        for (String editorName : EditorSetting.editorNameList) {
+            EditorSetting s = new EditorSetting();
+            this.state.editorSetting.put(editorName, s);
         }
 
-        /*
-        sound
-         */
+        // sound
         for (String eventName : SoundSetting.eventNameList) {
-            SoundSetting ss = new SoundSetting();
-            this.state.soundSetting.put(eventName, ss);
+            SoundSetting s = new SoundSetting();
+            this.state.soundSetting.put(eventName, s);
         }
     }
 

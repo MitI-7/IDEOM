@@ -4,13 +4,11 @@ import javax.swing.*;
 import javax.swing.JSlider;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
-
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.ui.InputValidator;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import org.jetbrains.annotations.NotNull;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,13 +40,13 @@ public class IDEOMConfigPanel extends JComponent{
         /*
         editor
          */
-        EditorSetting editorSetting = state.editorSetting.get("Default");
+        EditorSetting editorSetting = this.state.editorSetting.get(EditorSetting.DEFALUT);
         set_editorSetting(editorSetting);
         deleteEditorNameButton.setEnabled(false);
 
-        // 設定にあるeditorNameをすべて追加
+        // 設定にあるeditorNameをコンボボックスにすべて追加
         for (String editorName : state.editorSetting.keySet()) {
-            if (editorName.equals("Default")) {continue;}
+            if (editorName.equals(EditorSetting.DEFALUT)) {continue;}
             editorNameComboBox.addItem(editorName);
         }
 
@@ -64,19 +62,20 @@ public class IDEOMConfigPanel extends JComponent{
         /*
         sound
          */
-        SoundSetting soundSetting = this.state.soundSetting.get("Compile Success");
+        SoundSetting soundSetting = this.state.soundSetting.get(SoundSetting.PROJECTOPEN);
         set_soundSetting(soundSetting);
+
+        // 設定にあるeventをコンボボックスにすべて追加
+        for (String eventName : SoundSetting.eventNameList) {
+            eventNameComboBox.addItem(eventName);
+        }
+
         soundPath.addBrowseFolderListener(
                 "Select Image File", "", null,
                 new FileChooserDescriptor(true, false, false, false, false, false)
         );
         eventNameComboBox.addActionListener(new SelectEventName());
         soundPlayButton.addActionListener(new SoundPlay());
-
-        // 設定にあるeventをすべて追加
-        for (String eventName : SoundSetting.eventNameList) {
-            eventNameComboBox.addItem(eventName);
-        }
     }
 
     // editorNameComboBoxで選択された設定を設定する
@@ -85,7 +84,7 @@ public class IDEOMConfigPanel extends JComponent{
             String editorName = (String)editorNameComboBox.getSelectedItem();
             set_editorSetting(state.editorSetting.get(editorName));
 
-            if (editorName.equals("Default")) {
+            if (editorName.equals(EditorSetting.DEFALUT)) {
                 deleteEditorNameButton.setEnabled(false);
             }
             else {
@@ -128,7 +127,7 @@ public class IDEOMConfigPanel extends JComponent{
                 editorNameComboBox.removeItem(editorName);
                 state.editorSetting.remove(editorName);
                 editorNameComboBox.setSelectedIndex(0);
-                set_editorSetting(state.editorSetting.get("Default"));
+                set_editorSetting(state.editorSetting.get(EditorSetting.DEFALUT));
             }
         }
     }

@@ -10,8 +10,6 @@ public class SoundSetting {
     public String soundPath = "";
     public double soundVolume = 0.5;
 
-    static public List<String> eventNameList = asList("Compile Success", "Compile Warning", "Compile Error", "Project Open", "Project Close");
-
 
     @Override
     public boolean equals(Object obj) {
@@ -27,4 +25,10 @@ public class SoundSetting {
 
         return true;
     }
+
+    // イベント名
+    public static final String PROJECTOPEN = "Project Open";
+    public static final String PROJECTCLOSE = "Project Close";
+    public static final List<String> eventNameList = asList(PROJECTOPEN, PROJECTCLOSE);
+
 }
