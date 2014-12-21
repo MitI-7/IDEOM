@@ -7,6 +7,7 @@ Customizing the JetBRAINS IDEs
 
 ## Features
 * Adding background image in Editors
+* Plays sound at evnet(Open Project, Close Project)
 
 ## DEMO
 ![IDEOM](https://cloud.githubusercontent.com/assets/9996150/5455248/42f9ad50-857d-11e4-8517-ad98b659e02d.png)

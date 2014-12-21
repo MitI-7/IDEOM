@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2064a7d6-25e3-4b9c-a973-c8b14d670d6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/EditorSetting.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/EventListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/SoundPlayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/SoundSetting.java" />
-      <change type="DELETED" beforePath="C:\Users\hiromichi_s\Dropbox\program\IDEOM\src\com\github\MitI_7\Setting.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/EditorListener.java" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/EditorListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/release/IDEOM.jar" afterPath="$PROJECT_DIR$/release/IDEOM.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/EditorSetting.java" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/EditorSetting.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/EventListener.java" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/EventListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfig.java" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMPlugin.java" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/MyUIForm.form" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/MyUIForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/WallPaper.java" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/WallPaper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/META-INF/plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/github/MitI_7/SoundSetting.java" afterPath="$PROJECT_DIR$/src/com/github/MitI_7/SoundSetting.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="IDEOM.iws" />
@@ -39,69 +34,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WallPaper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/WallPaper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4" vertical-offset="204" max-vertical-offset="1364">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IDEOMPlugin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-29.04" vertical-offset="462" max-vertical-offset="2046">
-              <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+            <state vertical-scroll-proportion="-11.44" vertical-offset="0" max-vertical-offset="1760">
+              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#387#388#0" expanded="true" />
+                <element signature="e#410#411#0" expanded="true" />
+                <element signature="e#445#446#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/EventListener.java">
+      <file leaf-file-name="EditorSetting.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/EditorSetting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.04" vertical-offset="875" max-vertical-offset="1584">
-              <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1006#1007#0" expanded="true" />
-                <element signature="e#1044#1045#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SoundPlayer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/SoundPlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6229508" vertical-offset="0" max-vertical-offset="671">
-              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SoundSetting.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/SoundSetting.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.8" vertical-offset="0" max-vertical-offset="792">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IDEOMConfigPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="23.56" vertical-offset="3779" max-vertical-offset="4290">
-              <caret line="145" column="33" selection-start-line="145" selection-start-column="33" selection-end-line="145" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.66412216" vertical-offset="378" max-vertical-offset="902">
+              <caret line="33" column="165" selection-start-line="33" selection-start-column="165" selection-end-line="33" selection-end-column="165" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,15 +65,44 @@
       <file leaf-file-name="IDEOMConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.04" vertical-offset="523" max-vertical-offset="1518">
-              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.88" vertical-offset="264" max-vertical-offset="1210">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1584#1585#0" expanded="true" />
-                <element signature="e#1617#1618#0" expanded="true" />
-                <element signature="e#1685#1686#0" expanded="true" />
-                <element signature="e#1746#1747#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IDEOMConfigPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.96" vertical-offset="882" max-vertical-offset="4092">
+              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+              <folding>
+                <element signature="e#7551#7552#0" expanded="true" />
+                <element signature="e#7579#7580#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoundSetting.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/SoundSetting.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.64" vertical-offset="144" max-vertical-offset="858">
+              <caret line="31" column="87" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoundPlayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/SoundPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.48" vertical-offset="0" max-vertical-offset="594">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -142,21 +124,21 @@
         <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/com/github/MitI_7/SoundPlayer.java" />
         <option value="$PROJECT_DIR$/src/com/github/MitI_7/Setting.java" />
-        <option value="$PROJECT_DIR$/src/com/github/MitI_7/EditorSetting.java" />
-        <option value="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMPlugin.java" />
         <option value="$PROJECT_DIR$/src/com/github/MitI_7/MyUIForm.form" />
+        <option value="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMPlugin.java" />
         <option value="$PROJECT_DIR$/src/com/github/MitI_7/SoundSetting.java" />
-        <option value="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfig.java" />
-        <option value="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java" />
         <option value="$PROJECT_DIR$/src/com/github/MitI_7/EventListener.java" />
+        <option value="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java" />
+        <option value="$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfig.java" />
+        <option value="$PROJECT_DIR$/src/com/github/MitI_7/EditorSetting.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1928" />
-    <option name="y" value="-128" />
+    <option name="x" value="-8" />
+    <option name="y" value="-3" />
     <option name="width" value="1936" />
-    <option name="height" value="1216" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -198,6 +180,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -250,7 +233,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -486,16 +468,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-128" width="1936" height="1216" extended-state="6" />
+    <frame x="-8" y="-3" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32608697" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32521185" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3855932" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -507,7 +489,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3414855" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3855932" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -533,7 +515,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="83" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="102" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -542,64 +532,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/WallPaper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="682">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="814">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/MyUIForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="1804">
-          <caret line="22" column="80" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1210">
-          <caret line="36" column="80" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/WallPaper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="682">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="814">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/MyUIForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -611,6 +543,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -619,7 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="527">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -627,9 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="629">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -644,6 +576,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -659,7 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="527">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -667,9 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="697">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -684,6 +616,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -699,7 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="682">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -707,9 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="902">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -811,45 +743,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/picocontainer.jar!/org/picocontainer/defaults/InstantiatingComponentAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.88" vertical-offset="1938" max-vertical-offset="2760">
-          <caret line="119" column="21" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/com/intellij/openapi/components/impl/ComponentManagerImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8224299" vertical-offset="4272" max-vertical-offset="13368">
-          <caret line="207" column="40" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="472" max-vertical-offset="1152">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/EditorSetting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68327403" vertical-offset="0" max-vertical-offset="792">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/com/intellij/openapi/options/newEditor/OptionsEditor.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321617" vertical-offset="7155" max-vertical-offset="20376">
           <caret line="421" column="27" selection-start-line="421" selection-start-column="27" selection-end-line="421" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/EditorListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.083333336" vertical-offset="360" max-vertical-offset="1656">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -858,42 +755,98 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/WallPaper.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/util/messages/impl/MessageBusConnectionImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4" vertical-offset="204" max-vertical-offset="1364">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state vertical-scroll-proportion="-4.32" vertical-offset="1234" max-vertical-offset="2112">
+          <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/util/messages/impl/MessageBusImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3483366" vertical-offset="5410" max-vertical-offset="7854">
+          <caret line="294" column="17" selection-start-line="294" selection-start-column="17" selection-end-line="294" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/com/intellij/openapi/components/impl/ComponentManagerImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.44" vertical-offset="4877" max-vertical-offset="12254">
+          <caret line="280" column="32" selection-start-line="280" selection-start-column="32" selection-end-line="280" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfig.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/util/containers/ConcurrentHashMap.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.04" vertical-offset="523" max-vertical-offset="1518">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state vertical-scroll-proportion="-6.08" vertical-offset="3302" max-vertical-offset="57772">
+          <caret line="186" column="13" selection-start-line="186" selection-start-column="13" selection-end-line="186" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1584#1585#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
-            <element signature="e#1685#1686#0" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
+            <element signature="e#3199#3200#0" expanded="true" />
+            <element signature="e#3249#3250#0" expanded="true" />
+            <element signature="e#47278#47279#0" expanded="true" />
+            <element signature="e#47335#47336#0" expanded="true" />
+            <element signature="e#47553#47554#0" expanded="true" />
+            <element signature="e#47627#47628#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMPlugin.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/util/pico/DefaultPicoContainer.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.04" vertical-offset="462" max-vertical-offset="2046">
-          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+        <state vertical-scroll-proportion="-6.08" vertical-offset="3698" max-vertical-offset="7876">
+          <caret line="215" column="18" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/picocontainer.jar!/org/picocontainer/alternatives/AbstractDelegatingMutablePicoContainer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.28" vertical-offset="833" max-vertical-offset="2266">
+          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2700#2701#0" expanded="true" />
+            <element signature="e#2771#2772#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/openapi/components/ServiceManager.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="23.56" vertical-offset="3779" max-vertical-offset="4290">
-          <caret line="145" column="33" selection-start-line="145" selection-start-column="33" selection-end-line="145" selection-end-column="33" />
+        <state vertical-scroll-proportion="-6.08" vertical-offset="156" max-vertical-offset="660">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/execution/ExecutionManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.08" vertical-offset="112" max-vertical-offset="1012">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/execution/ui/RunContentManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6" vertical-offset="1089" max-vertical-offset="1760">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/com/intellij/execution/ui/RunContentManagerImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52401745" vertical-offset="9286" max-vertical-offset="14872">
+          <caret line="518" column="41" selection-start-line="518" selection-start-column="41" selection-end-line="518" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/EventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.094151214" vertical-offset="330" max-vertical-offset="2464">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -902,47 +855,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/SoundSetting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.8" vertical-offset="0" max-vertical-offset="792">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/util/messages/impl/MessageBusConnectionImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.32" vertical-offset="1234" max-vertical-offset="2112">
-          <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+        <state vertical-scroll-proportion="-20.64" vertical-offset="144" max-vertical-offset="858">
+          <caret line="31" column="87" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="87" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/util/messages/impl/MessageBusImpl.class">
+    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/WallPaper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3483366" vertical-offset="5410" max-vertical-offset="7854">
-          <caret line="294" column="17" selection-start-line="294" selection-start-column="17" selection-end-line="294" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.9236641" vertical-offset="0" max-vertical-offset="1364">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/EventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.04" vertical-offset="875" max-vertical-offset="1584">
-          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1044#1045#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/SoundPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6229508" vertical-offset="0" max-vertical-offset="671">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        <state vertical-scroll-proportion="-18.48" vertical-offset="0" max-vertical-offset="594">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/picocontainer.jar!/org/picocontainer/defaults/ConstructorInjectionComponentAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4312">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/picocontainer.jar!/org/picocontainer/defaults/InstantiatingComponentAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3483366" vertical-offset="1802" max-vertical-offset="2530">
+          <caret line="119" column="21" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfigPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.96" vertical-offset="882" max-vertical-offset="4092">
+          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+          <folding>
+            <element signature="e#7551#7552#0" expanded="true" />
+            <element signature="e#7579#7580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2003644" vertical-offset="45" max-vertical-offset="1056">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.88" vertical-offset="264" max-vertical-offset="1210">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/IDEOMPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.44" vertical-offset="0" max-vertical-offset="1760">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/github/MitI_7/EditorSetting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66412216" vertical-offset="378" max-vertical-offset="902">
+          <caret line="33" column="165" selection-start-line="33" selection-start-column="165" selection-end-line="33" selection-end-column="165" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
