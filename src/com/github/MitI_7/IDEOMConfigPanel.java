@@ -22,6 +22,7 @@ public class IDEOMConfigPanel extends JComponent{
     private JCheckBox useWallPaperCheckBox;
     private TextFieldWithBrowseButton imagePath;
     private JSlider imageOpacitySlider;
+    private JSlider imageSizeSlider;
     private JComboBox imageHorizonPositionComboBox;
     private JComboBox imageVerticalPositionComboBox;
 
@@ -107,7 +108,6 @@ public class IDEOMConfigPanel extends JComponent{
             else {
                 deleteEditorNameButton.setEnabled(true);
             }
-
         }
     }
 
@@ -162,13 +162,13 @@ public class IDEOMConfigPanel extends JComponent{
     private class SoundPlay implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             SoundPlayer.play(soundPath.getText(), soundVolumeSlider.getValue() / 100.0f);
-
         }
     }
 
     private void set_editorOptionEnable(boolean b) {
         imagePath.setEditable(b);
         imageOpacitySlider.setEnabled(b);
+        imageSizeSlider.setEnabled(b);
         imageHorizonPositionComboBox.setEnabled(b);
         imageVerticalPositionComboBox.setEnabled(b);
     }
@@ -185,6 +185,7 @@ public class IDEOMConfigPanel extends JComponent{
         editorSetting.useWallPaper    = this.useWallPaperCheckBox.isSelected();
         editorSetting.imagePath       = this.imagePath.getText();
         editorSetting.imageOpacity    = this.imageOpacitySlider.getValue() / 100.0f;
+        editorSetting.imageSize       = this.imageSizeSlider.getValue() / 100.0;
         editorSetting.imageHorizonPositionNo = this.imageHorizonPositionComboBox.getSelectedIndex();
         editorSetting.imageVerticalPositionNo = this.imageVerticalPositionComboBox.getSelectedIndex();
 
@@ -205,6 +206,7 @@ public class IDEOMConfigPanel extends JComponent{
         this.useWallPaperCheckBox.setSelected(editorSetting.useWallPaper);
         this.imagePath.setText(editorSetting.imagePath);
         this.imageOpacitySlider.setValue((int)(editorSetting.imageOpacity * 100));
+        this.imageSizeSlider.setValue((int)(editorSetting.imageSize * 100));
         this.imageHorizonPositionComboBox.setSelectedIndex(editorSetting.imageHorizonPositionNo);
         this.imageVerticalPositionComboBox.setSelectedIndex(editorSetting.imageVerticalPositionNo);
     }

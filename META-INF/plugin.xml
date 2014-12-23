@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.github.MitI_7.IDEOM</id>
   <name>IDEOM</name>
-  <version>0.1</version>
+  <version>0.2</version>
   <vendor email="MitI_7@hotmail.com" url="https://github.com/MitI-7/IDEOM">MitI_7</vendor>
 
   <description><![CDATA[

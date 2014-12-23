@@ -9,7 +9,8 @@ public class EditorSetting {
     public String editorName = "";
     public boolean useWallPaper = false;
     public String imagePath = "";
-    public float imageOpacity = 0.2f;
+    public float imageOpacity = 0.5f;
+    public double imageSize = 1.0;
     public int imageHorizonPositionNo = 0;
     public int imageVerticalPositionNo = 0;
 
@@ -23,6 +24,7 @@ public class EditorSetting {
         if (this.useWallPaper != editorSetting.useWallPaper) {return false;}
         if (!this.imagePath.equals(editorSetting.imagePath)) {return false;}
         if (this.imageOpacity != editorSetting.imageOpacity) {return false;}
+        if (this.imageSize != editorSetting.imageSize) {return false;}
         if (this.imageHorizonPositionNo != editorSetting.imageHorizonPositionNo) {return false;}
         if (this.imageVerticalPositionNo != editorSetting.imageVerticalPositionNo) {return false;}
 
