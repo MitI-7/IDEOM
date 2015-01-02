@@ -13,6 +13,8 @@ public class EditorSetting {
     public double imageSize = 1.0;
     public int imageHorizonPositionNo = 0;
     public int imageVerticalPositionNo = 0;
+    public boolean useIcon = false;
+    public String iconImagePath = "";
 
     @Override
     public boolean equals(Object obj) {
@@ -27,6 +29,8 @@ public class EditorSetting {
         if (this.imageSize != editorSetting.imageSize) {return false;}
         if (this.imageHorizonPositionNo != editorSetting.imageHorizonPositionNo) {return false;}
         if (this.imageVerticalPositionNo != editorSetting.imageVerticalPositionNo) {return false;}
+        if (this.useIcon != editorSetting.useIcon) {return false;}
+        if (!this.iconImagePath.equals(editorSetting.iconImagePath)) {return false;}
 
         return true;
     }

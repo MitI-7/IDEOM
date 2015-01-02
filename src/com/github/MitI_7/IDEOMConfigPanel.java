@@ -20,11 +20,13 @@ public class IDEOMConfigPanel extends JComponent{
     private JButton addEditorNameButton;
     private JButton deleteEditorNameButton;
     private JCheckBox useWallPaperCheckBox;
-    private TextFieldWithBrowseButton imagePath;
+    private TextFieldWithBrowseButton backGroundImagePath;
     private JSlider imageOpacitySlider;
     private JSlider imageSizeSlider;
     private JComboBox imageHorizonPositionComboBox;
     private JComboBox imageVerticalPositionComboBox;
+    private JCheckBox useIconCheckBox;
+    private TextFieldWithBrowseButton iconImagePath;
 
     // sound
     private JComboBox eventNameComboBox;
@@ -43,7 +45,8 @@ public class IDEOMConfigPanel extends JComponent{
          */
         EditorSetting editorSetting = this.state.editorSetting.get(EditorSetting.DEFALUT);
         set_editorSetting(editorSetting);
-        set_editorOptionEnable(useWallPaperCheckBox.isSelected());
+        set_backgroundOptionEnable(useWallPaperCheckBox.isSelected());
+        set_iconOptionEnabele(useIconCheckBox.isSelected());
         deleteEditorNameButton.setEnabled(false);
 
         // 設定にあるeditorNameをコンボボックスにすべて追加
@@ -55,17 +58,29 @@ public class IDEOMConfigPanel extends JComponent{
         useWallPaperCheckBox.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                set_editorOptionEnable(useWallPaperCheckBox.isSelected());
+                set_backgroundOptionEnable(useWallPaperCheckBox.isSelected());
             }
         });
 
-        imagePath.addBrowseFolderListener(
+        backGroundImagePath.addBrowseFolderListener(
                 "Select Image File", "", null,
                 new FileChooserDescriptor(true, false, false, false, false, false)
         );
         editorNameComboBox.addActionListener(new SelectEditorName());
         addEditorNameButton.addActionListener(new AddEditorName());
         deleteEditorNameButton.addActionListener(new DeleteEditorName());
+
+        useIconCheckBox.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                set_iconOptionEnabele(useIconCheckBox.isSelected());
+            }
+        });
+
+        iconImagePath.addBrowseFolderListener(
+                "Select Image File", "", null,
+                new FileChooserDescriptor(true, false, false, false, false, false)
+        );
 
 
         /*
@@ -100,7 +115,8 @@ public class IDEOMConfigPanel extends JComponent{
         public void actionPerformed(ActionEvent e){
             String editorName = (String)editorNameComboBox.getSelectedItem();
             set_editorSetting(state.editorSetting.get(editorName));
-            set_editorOptionEnable(state.editorSetting.get(editorName).useWallPaper);
+            set_backgroundOptionEnable(state.editorSetting.get(editorName).useWallPaper);
+            set_iconOptionEnabele(state.editorSetting.get(editorName).useIcon);
 
             if (editorName.equals(EditorSetting.DEFALUT)) {
                 deleteEditorNameButton.setEnabled(false);
@@ -165,12 +181,16 @@ public class IDEOMConfigPanel extends JComponent{
         }
     }
 
-    private void set_editorOptionEnable(boolean b) {
-        imagePath.setEditable(b);
+    private void set_backgroundOptionEnable(boolean b) {
+        backGroundImagePath.setEditable(b);
         imageOpacitySlider.setEnabled(b);
         imageSizeSlider.setEnabled(b);
         imageHorizonPositionComboBox.setEnabled(b);
         imageVerticalPositionComboBox.setEnabled(b);
+    }
+
+    private void set_iconOptionEnabele(boolean b) {
+        iconImagePath.setEnabled(b);
     }
 
     private void set_soundOptionEnable(boolean b) {
@@ -183,11 +203,13 @@ public class IDEOMConfigPanel extends JComponent{
         EditorSetting editorSetting = new EditorSetting();
         editorSetting.editorName      = (String)this.editorNameComboBox.getSelectedItem();
         editorSetting.useWallPaper    = this.useWallPaperCheckBox.isSelected();
-        editorSetting.imagePath       = this.imagePath.getText();
+        editorSetting.imagePath       = this.backGroundImagePath.getText();
         editorSetting.imageOpacity    = this.imageOpacitySlider.getValue() / 100.0f;
         editorSetting.imageSize       = this.imageSizeSlider.getValue() / 100.0;
         editorSetting.imageHorizonPositionNo = this.imageHorizonPositionComboBox.getSelectedIndex();
         editorSetting.imageVerticalPositionNo = this.imageVerticalPositionComboBox.getSelectedIndex();
+        editorSetting.useIcon       = this.useIconCheckBox.isSelected();
+        editorSetting.iconImagePath = this.iconImagePath.getText();
 
         return editorSetting;
     }
@@ -204,11 +226,13 @@ public class IDEOMConfigPanel extends JComponent{
 
     private void set_editorSetting(EditorSetting editorSetting) {
         this.useWallPaperCheckBox.setSelected(editorSetting.useWallPaper);
-        this.imagePath.setText(editorSetting.imagePath);
+        this.backGroundImagePath.setText(editorSetting.imagePath);
         this.imageOpacitySlider.setValue((int)(editorSetting.imageOpacity * 100));
         this.imageSizeSlider.setValue((int)(editorSetting.imageSize * 100));
         this.imageHorizonPositionComboBox.setSelectedIndex(editorSetting.imageHorizonPositionNo);
         this.imageVerticalPositionComboBox.setSelectedIndex(editorSetting.imageVerticalPositionNo);
+        this.useIconCheckBox.setSelected(editorSetting.useIcon);
+        this.iconImagePath.setText(editorSetting.iconImagePath);
     }
 
     public void set_soundSetting(@NotNull SoundSetting soundSetting) {

@@ -7,13 +7,14 @@ Customizing the JetBRAINS IDEs
 
 ## Features
 * Adding background image in Editors
-* Plays sound at evnet(Run, Run Error, Open Project, Close Project)
+* Change icons at Editor
+* Plays sound at event(Run, Run Error, Open Project, Close Project)
 
 ## DEMO
-![IDEOM](https://cloud.githubusercontent.com/assets/9996150/5455248/42f9ad50-857d-11e4-8517-ad98b659e02d.png)
+![IDEOM](https://cloud.githubusercontent.com/assets/9996150/5596987/f8353e60-92dd-11e4-883b-2cc075c1d3e0.png)
 
 ## Install
-[Installing, Updating and Uninstalling Repository Plugins](https://www.jetbrains.com/idea/help/installing-updating-and-uninstalling-repository-plugins.html)
+[IDEOM](https://plugins.jetbrains.com/plugin/7652)
 
 ## Products
 * IntelliJ IDEA, PyCharm

@@ -2,13 +2,22 @@
   <id>com.github.MitI_7.IDEOM</id>
   <name>IDEOM</name>
   <version>0.2</version>
-  <vendor email="MitI_7@hotmail.com" url="https://github.com/MitI-7/IDEOM">MitI_7</vendor>
+  <vendor email="MitI_7@outlook.com" url="https://github.com/MitI-7/IDEOM">MitI_7</vendor>
 
   <description><![CDATA[
-      Setting Wallpaper
+      Customizing the JetBRAINS IDEs.<br>
+      <p>Features:
+          <ul>
+              <li>Adding background image in Editors.
+              <li>Change icons at Editor.
+              <li>Plays sound at certain events(Run, Run Error, Open Project, Close Project).
+          </ul>
+      </p>
     ]]></description>
 
   <change-notes><![CDATA[
+      0.2    - Icon at editor can be changed.<br>
+      0.1    - Initial Version
     ]]>
   </change-notes>
 
@@ -21,8 +30,9 @@
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <applicationService serviceInterface="com.github.MitI_7.IDEOMConfig" serviceImplementation="com.github.MitI_7.IDEOMConfig"/>
-    <consoleFilterProvider implementation="com.github.MitI_7.IDEOMConsoleFilter" order="last" />
+      <applicationService serviceInterface="com.github.MitI_7.IDEOMConfig" serviceImplementation="com.github.MitI_7.IDEOMConfig"/>
+      <consoleFilterProvider implementation="com.github.MitI_7.IDEOMConsoleFilter" order="last" />
+      <iconProvider implementation="com.github.MitI_7.IDEOMApplicationPlugin" />
   </extensions>
 
   <application-components>
