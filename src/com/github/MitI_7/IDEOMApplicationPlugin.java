@@ -17,6 +17,7 @@ import javax.swing.border.Border;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -68,7 +69,10 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
 
     @Override
     public JComponent createComponent() {
-        if (ideomConfigPanel == null && state != null) {
+        if (state == null) {
+            state = IDEOMConfig.getInstance().state;
+        }
+        if (ideomConfigPanel == null) {
             ideomConfigPanel = new IDEOMConfigPanel(this.state);
         }
         return ideomConfigPanel.get_panel();
@@ -169,7 +173,12 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
         if (state == null) {
             state = IDEOMConfig.getInstance().state;
         }
-        String editorName = element.getContainingFile().getName();
+        PsiFile containingFile = element.getContainingFile();
+        if (containingFile == null) {
+            return null;
+        }
+
+        String editorName = containingFile.getName();
         EditorSetting editorSetting = state.editorSetting.get(EditorSetting.DEFALUT);
 
         // 設定にあるeditorNameからマッチするものを探す
