@@ -34,6 +34,7 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
         super();
     }
 
+    @Override
     public void initComponent() {
         if (state == null) {
             state = IDEOMConfig.getInstance().state;
@@ -47,6 +48,7 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
         });
     }
 
+    @Override
     public void disposeComponent() {
     }
 
@@ -59,10 +61,12 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
     /*
     Configurable
      */
+    @Override
     public String getDisplayName() {
         return "IDEOM";
     }
 
+    @Override
     public JComponent createComponent() {
         if (ideomConfigPanel == null && state != null) {
             ideomConfigPanel = new IDEOMConfigPanel(this.state);
@@ -70,7 +74,7 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
         return ideomConfigPanel.get_panel();
     }
 
-    // OK or Apply button
+    @Override
     public void apply() {
         EditorSetting nowEditorSetting = ideomConfigPanel.get_editorSetting();
         state.editorSetting.put(nowEditorSetting.editorName, nowEditorSetting);
@@ -79,10 +83,11 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
         state.soundSetting.put(nowSoundSetting.eventName, nowSoundSetting);
     }
 
-    // Cancel button
+    @Override
     public void reset() {
     }
 
+    @Override
     public boolean isModified() {
         // 設定パネルの状態と設定クラスの状態を比較(表示しているEditorNameのもののみ)
         EditorSetting nowEditorSetting = ideomConfigPanel.get_editorSetting();
@@ -99,10 +104,12 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
     }
 
     // user closes the form
+    @Override
     public void disposeUIResources() {
         ideomConfigPanel = null;
     }
 
+    @Override
     public String getHelpTopic() {
         return "plugins.IDEOMApplicationPlugin";
     }
@@ -110,6 +117,7 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
     /*
      EditorFactoryListener
      */
+    @Override
     public void editorCreated(@NotNull EditorFactoryEvent event) {
         Editor editor = event.getEditor();
         VirtualFile v = FileDocumentManager.getInstance().getFile(editor.getDocument());
@@ -147,6 +155,7 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
         }
     }
 
+    @Override
     public void editorReleased(@NotNull EditorFactoryEvent event) {
         event.getEditor().getContentComponent().setBorder(null);
     }
@@ -155,6 +164,7 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
     IconProvider
      */
     @Nullable
+    @Override
     public Icon getIcon(@NotNull PsiElement element, int flags) {
         if (state == null) {
             state = IDEOMConfig.getInstance().state;
