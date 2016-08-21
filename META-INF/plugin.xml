@@ -33,7 +33,8 @@
       <applicationService serviceInterface="com.github.MitI_7.IDEOMConfig" serviceImplementation="com.github.MitI_7.IDEOMConfig"/>
       <consoleFilterProvider implementation="com.github.MitI_7.IDEOMConsoleFilter" order="last" />
       <iconProvider implementation="com.github.MitI_7.IDEOMApplicationPlugin" />
-  </extensions>
+      <applicationConfigurable instance="com.github.MitI_7.IDEOMApplicationPlugin" />
+</extensions>
 
   <application-components>
     <component>
