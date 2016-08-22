@@ -1,6 +1,8 @@
 package com.github.MitI_7;
 
 import com.intellij.ide.IconProvider;
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationType;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.editor.Editor;
@@ -152,6 +154,13 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
 
         try {
             File file = new File(editorSetting.imagePath);
+            if (!file.exists()) {
+                // TODO: 表示されない
+                // new Notification("IDEOM", "IDEOM", file.toString() + " is not found.", NotificationType.INFORMATION);
+                Messages.showErrorDialog(file.toString() + " is not found.", "IDEOM");
+                return;
+            }
+
             Border wallPaper = new WallPaper(ImageIO.read(file), editorSetting);
             editor.getContentComponent().setBorder(wallPaper);
         } catch (Exception e) {
@@ -188,7 +197,7 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
                 isMatched = editorName.matches(editorNameInSetting);
             }
             catch (Exception e) {
-                Messages.showErrorDialog(e.toString(), "Error Setting Icon Image.");
+                //Messages.showErrorDialog(e.toString(), "Error Setting Icon Image.");
             }
             if (isMatched) {
                 editorSetting = state.editorSetting.get(editorNameInSetting);
@@ -197,12 +206,21 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
         }
 
         if (!editorSetting.useIcon || editorSetting.iconImagePath.equals("")) {return null;}
-
         try {
-            Image image = Toolkit.getDefaultToolkit().getImage(editorSetting.iconImagePath);
+            File iconImagePath = new File(editorSetting.iconImagePath);
+            if (!iconImagePath.exists()) {
+                // TODO: 表示されない
+                //new Notification("IDEOM", "IDEOM", iconImagePath.toString() + " is not found.", NotificationType.ERROR);
+                // TODO: can't access this position
+                //Messages.showErrorDialog(iconImagePath.toString() + " is not found.", "IDEOM");
+                return null;
+            }
+
+            Image image = Toolkit.getDefaultToolkit().getImage(iconImagePath.toString());
             return new ImageIcon(image);
         } catch (Exception e) {
-            Messages.showErrorDialog(e.toString(), "Error Setting Icon Image.");
+            // TODO: can't access this position
+            //Messages.showErrorDialog(e.toString(), "Error Setting Icon Image.");
         }
 
         return null;
