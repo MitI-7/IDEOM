@@ -11,6 +11,7 @@ import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import org.jetbrains.annotations.NotNull;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
 
 
 public class IDEOMConfigPanel extends JComponent{
@@ -137,7 +138,14 @@ public class IDEOMConfigPanel extends JComponent{
                              if (inputString == null || inputString.equals("")) { return false; }
                              if (inputString.length() >= 20) {return false;}
                              if (state.editorSetting.keySet().contains(inputString)) {return false;}
-                             else {return true;}
+                             try {
+                                 // TODO: キャプションに正規表現エラーってだす
+                                 Pattern.compile(inputString);
+                             }
+                             catch (Exception e) {
+                                 return false;
+                             }
+                             return true;
                          }
                          public boolean canClose(String inputString) { return true; }
                      }
