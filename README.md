@@ -1,6 +1,6 @@
 IDEOM
 ==========
-plugin for JetBRAINS IDEs.
+plugin for JetBRAINS IDEs.  
 JetBRAINS page is [IDEOM](https://plugins.jetbrains.com/plugin/7652).
 
 ## Description
