@@ -135,6 +135,11 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
 
             // 設定にあるeditorNameからマッチするものを探す
             for (String editorNameInSetting : state.editorSetting.keySet()) {
+
+                if (!state.editorSetting.get(editorNameInSetting).useWallPaper || state.editorSetting.get(editorNameInSetting).imagePath.equals("")) {
+                    continue;
+                }
+
                 Boolean isMatched = false;
                 try {
                     isMatched = editorName.matches(editorNameInSetting);
@@ -143,6 +148,7 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
                     Messages.showErrorDialog(e.toString(), "Error Setting Background Image.");
                 }
                 if (isMatched) {
+
                     editorSetting = state.editorSetting.get(editorNameInSetting);
                     break;
                 }
@@ -150,7 +156,9 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
             //Messages.showErrorDialog(editorName, "Error setting background image.");
         }
 
-        if (!editorSetting.useWallPaper || editorSetting.imagePath.equals("")) {return;}
+        if (!editorSetting.useWallPaper || editorSetting.imagePath.equals("")) {
+            return;
+        }
 
         try {
             File file = new File(editorSetting.imagePath);
@@ -192,6 +200,10 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
 
         // 設定にあるeditorNameからマッチするものを探す
         for (String editorNameInSetting : state.editorSetting.keySet()) {
+            if (!state.editorSetting.get(editorNameInSetting).useWallPaper || state.editorSetting.get(editorNameInSetting).imagePath.equals("")) {
+                continue;
+            }
+
             Boolean isMatched = false;
             try {
                 isMatched = editorName.matches(editorNameInSetting);
