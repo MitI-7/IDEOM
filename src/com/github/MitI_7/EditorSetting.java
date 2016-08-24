@@ -7,7 +7,7 @@ import static java.util.Arrays.asList;
 
 public class EditorSetting {
     public String editorName = "";
-    public boolean useWallPaper = false;
+    public boolean useWallPaper = true;
     public String imagePath = "";
     public float imageOpacity = 0.5f;
     public double imageSize = 1.0;
