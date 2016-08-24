@@ -19,6 +19,7 @@ public class IDEOMConfigPanel extends JComponent{
     // editor
     private JComboBox editorNameComboBox;
     private JButton addEditorNameButton;
+    private JButton editEditorNameButton;
     private JButton deleteEditorNameButton;
     private JCheckBox useWallPaperCheckBox;
     private TextFieldWithBrowseButton backGroundImagePath;
@@ -36,6 +37,7 @@ public class IDEOMConfigPanel extends JComponent{
     private JButton soundPlayButton;
     private JSlider soundVolumeSlider;
 
+
     public IDEOMConfig.State state;
 
     public IDEOMConfigPanel(IDEOMConfig.State state) {
@@ -48,6 +50,7 @@ public class IDEOMConfigPanel extends JComponent{
         set_editorSetting(editorSetting);
         set_backgroundOptionEnable(useWallPaperCheckBox.isSelected());
         set_iconOptionEnabele(useIconCheckBox.isSelected());
+        editEditorNameButton.setEnabled(false);
         deleteEditorNameButton.setEnabled(false);
 
         // 設定にあるeditorNameをコンボボックスにすべて追加
@@ -69,6 +72,7 @@ public class IDEOMConfigPanel extends JComponent{
         );
         editorNameComboBox.addActionListener(new SelectEditorName());
         addEditorNameButton.addActionListener(new AddEditorName());
+        editEditorNameButton.addActionListener(new EditEditorName());
         deleteEditorNameButton.addActionListener(new DeleteEditorName());
 
         useIconCheckBox.addActionListener(new AbstractAction() {
@@ -120,9 +124,11 @@ public class IDEOMConfigPanel extends JComponent{
             set_iconOptionEnabele(state.editorSetting.get(editorName).useIcon);
 
             if (editorName.equals(EditorSetting.DEFALUT)) {
+                editEditorNameButton.setEnabled(false);
                 deleteEditorNameButton.setEnabled(false);
             }
             else {
+                editEditorNameButton.setEnabled(true);
                 deleteEditorNameButton.setEnabled(true);
             }
         }
@@ -159,6 +165,49 @@ public class IDEOMConfigPanel extends JComponent{
             state.editorSetting.put(editorName, s);
             editorNameComboBox.setSelectedItem(editorName);
             set_editorSetting(s);
+        }
+    }
+
+    private class EditEditorName implements ActionListener {
+        public void actionPerformed(ActionEvent e){
+            String selectedEditorName = (String)editorNameComboBox.getSelectedItem();
+            final String editorName = Messages.showInputDialog(
+                    "Edit Editor Setting", "Input Dialog", null, selectedEditorName,
+                    new InputValidator() {
+                        // FIX:ダイアログが生成されたときはOKが有効になってる(押せはしない)けどどう直すの？
+                        public boolean checkInput(String inputString) {
+                            if (inputString == null || inputString.equals("")) { return false; }
+                            if (inputString.length() >= 20) {return false;}
+                            if (state.editorSetting.keySet().contains(inputString)) {return false;}
+                            try {
+                                // TODO: キャプションに正規表現エラーってだす
+                                Pattern.compile(inputString);
+                            }
+                            catch (Exception e) {
+                                return false;
+                            }
+                            return true;
+                        }
+                        public boolean canClose(String inputString) { return true; }
+                    }
+            );
+
+
+            if (editorName == null || editorName.equals(selectedEditorName)) {
+                return;
+            }
+
+            EditorSetting editorSetting = state.editorSetting.get(selectedEditorName);
+
+            // 編集前のファイル名の設定を削除
+            editorNameComboBox.removeItem(selectedEditorName);
+            state.editorSetting.remove(selectedEditorName);
+
+            // 新規作成
+            editorNameComboBox.addItem(editorName);
+            state.editorSetting.put(editorName, editorSetting);
+            editorNameComboBox.setSelectedItem(editorName);
+            set_editorSetting(editorSetting);
         }
     }
 
