@@ -4,6 +4,7 @@ import com.intellij.ide.IconProvider;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
 import com.intellij.openapi.Disposable;
+import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
@@ -18,8 +19,10 @@ import javax.swing.border.Border;
 
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.wm.ex.ToolWindowManagerListener;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.jcraft.jsch.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -126,35 +129,37 @@ public class IDEOMApplicationPlugin extends IconProvider implements ApplicationC
     @Override
     public void editorCreated(@NotNull EditorFactoryEvent event) {
         Editor editor = event.getEditor();
-        VirtualFile v = FileDocumentManager.getInstance().getFile(editor.getDocument());
-        EditorSetting editorSetting = state.editorSetting.get(EditorSetting.DEFALUT);
+        VirtualFile virtualFile = FileDocumentManager.getInstance().getFile(editor.getDocument());
 
-        // editor名が取得でき，その設定があるなら取得する
-        if (v != null) {
-            String editorName = v.getName();
-
-            // 設定にあるeditorNameからマッチするものを探す
-            for (String editorNameInSetting : state.editorSetting.keySet()) {
-
-                if (!state.editorSetting.get(editorNameInSetting).useWallPaper || state.editorSetting.get(editorNameInSetting).imagePath.equals("")) {
-                    continue;
-                }
-
-                Boolean isMatched = false;
-                try {
-                    isMatched = editorName.matches(editorNameInSetting);
-                }
-                catch (Exception e) {
-                    Messages.showErrorDialog(e.toString(), "Error Setting Background Image.");
-                }
-                if (isMatched) {
-
-                    editorSetting = state.editorSetting.get(editorNameInSetting);
-                    break;
-                }
-            }
-            //Messages.showErrorDialog(editorName, "Error setting background image.");
+        // editor名がとれなかったらdialogとかconsoleとかなので無視する
+        // TODO: ここで開かれたeditorがconsoleなのかとか識別したい
+        if (virtualFile == null) {
+            return;
         }
+
+        EditorSetting editorSetting = state.editorSetting.get(EditorSetting.DEFALUT);
+        String editorName = virtualFile.getName();
+        // 設定にあるeditorNameからマッチするものを探す
+        for (String editorNameInSetting : state.editorSetting.keySet()) {
+
+            if (!state.editorSetting.get(editorNameInSetting).useWallPaper || state.editorSetting.get(editorNameInSetting).imagePath.equals("")) {
+                continue;
+            }
+
+            Boolean isMatched = false;
+            try {
+                isMatched = editorName.matches(editorNameInSetting);
+            }
+            catch (Exception e) {
+                Messages.showErrorDialog(e.toString(), "Error Setting Background Image.");
+            }
+            if (isMatched) {
+
+                editorSetting = state.editorSetting.get(editorNameInSetting);
+                break;
+            }
+        }
+
 
         if (!editorSetting.useWallPaper || editorSetting.imagePath.equals("")) {
             return;
