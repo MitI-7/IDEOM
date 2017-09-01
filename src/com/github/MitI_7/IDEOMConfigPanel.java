@@ -142,7 +142,6 @@ public class IDEOMConfigPanel extends JComponent{
                         // FIX:ダイアログが生成されたときはOKが有効になってる(押せはしない)けどどう直すの？
                          public boolean checkInput(String inputString) {
                              if (inputString == null || inputString.equals("")) { return false; }
-                             if (inputString.length() >= 20) {return false;}
                              if (state.editorSetting.keySet().contains(inputString)) {return false;}
                              try {
                                  // TODO: キャプションに正規表現エラーってだす
@@ -177,7 +176,6 @@ public class IDEOMConfigPanel extends JComponent{
                         // FIX:ダイアログが生成されたときはOKが有効になってる(押せはしない)けどどう直すの？
                         public boolean checkInput(String inputString) {
                             if (inputString == null || inputString.equals("")) { return false; }
-                            if (inputString.length() >= 20) {return false;}
                             if (state.editorSetting.keySet().contains(inputString)) {return false;}
                             try {
                                 // TODO: キャプションに正規表現エラーってだす
