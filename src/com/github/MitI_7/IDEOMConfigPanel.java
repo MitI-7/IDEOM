@@ -226,8 +226,8 @@ public class IDEOMConfigPanel extends JComponent{
     private class SelectEventName implements ActionListener {
         public void actionPerformed(ActionEvent e){
             String eventName = (String)eventNameComboBox.getSelectedItem();
-            set_soundSetting(state.soundSetting.get(eventName));
-            set_soundOptionEnable(state.soundSetting.get(eventName).useSound);
+            set_soundSetting(state.soundSetting.getOrDefault(eventName, new SoundSetting()));
+            set_soundOptionEnable(state.soundSetting.getOrDefault(eventName, new SoundSetting()).useSound);
             if (eventName.equals(SoundSetting.CONSOLEFILTER)) {
                 filterTextField.setEnabled(true);
             }
@@ -300,7 +300,7 @@ public class IDEOMConfigPanel extends JComponent{
         this.useSoundCheckBox.setSelected(soundSetting.useSound);
         this.soundPath.setText(soundSetting.soundPath);
         this.filterTextField.setText(soundSetting.consoleFilter);
-        this.soundVolumeSlider.setValue((int)(soundSetting.soundVolume * 100));
+        this.soundVolumeSlider.setValue((int) (soundSetting.soundVolume * 100));
     }
 
     public JPanel get_panel() {

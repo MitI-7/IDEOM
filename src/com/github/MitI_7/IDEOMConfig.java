@@ -10,10 +10,7 @@ import org.jetbrains.annotations.Nullable;
 @State(
         name = "IDEOM",
         storages = {
-                @Storage(
-                        id = "IDEOM",
-                        file = "$APP_CONFIG$/IDEOM_setting.xml"
-                )
+                @Storage("IDEOM_setting.xml")
         }
 )
 public class IDEOMConfig implements PersistentStateComponent<IDEOMConfig.State> {

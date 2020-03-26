@@ -17,14 +17,6 @@ public class IDEOMConsoleFilter implements ConsoleFilterProvider {
     @NotNull
     @Override
     public Filter[] getDefaultFilters(@NotNull Project project) {
-        // TODO: 正確には実行したときにここを通るわけじゃないんだけど，ほかに方法がないっぽい？？
-        SoundSetting soundSetting;
-
-        soundSetting = this.state.soundSetting.get(SoundSetting.RUN);
-        if (soundSetting.useSound) {
-            SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
-        }
-
         Filter filter = new IDEOMFilter();
         return new Filter[]{filter};
     }

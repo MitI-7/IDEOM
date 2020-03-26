@@ -29,10 +29,11 @@ public class SoundSetting {
     }
 
     // イベント名
+    public static final String RUN = "Run";
+    public static final String DEBUG = "Debug";
     public static final String PROJECTOPEN = "Project Open";
     public static final String PROJECTCLOSE = "Project Close";
-    public static final String RUN = "Run";
     public static final String CONSOLEFILTER = "Console Filter";
-    public static final List<String> eventNameList = asList(RUN, CONSOLEFILTER, PROJECTOPEN, PROJECTCLOSE);
+    public static final List<String> eventNameList = asList(RUN, DEBUG, CONSOLEFILTER, PROJECTOPEN, PROJECTCLOSE);
 
 }
