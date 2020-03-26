@@ -36,6 +36,7 @@ public class IDEOMConfigPanel extends JComponent{
     private TextFieldWithBrowseButton soundPath;
     private JButton soundPlayButton;
     private JSlider soundVolumeSlider;
+    private JTextField filterTextField;
 
 
     public IDEOMConfig.State state;
@@ -91,7 +92,7 @@ public class IDEOMConfigPanel extends JComponent{
         /*
         sound
          */
-        SoundSetting soundSetting = this.state.soundSetting.get(SoundSetting.PROJECTOPEN);
+        SoundSetting soundSetting = this.state.soundSetting.get(SoundSetting.RUN);
         set_soundSetting(soundSetting);
         set_soundOptionEnable(useSoundCheckBox.isSelected());
 
@@ -140,20 +141,20 @@ public class IDEOMConfigPanel extends JComponent{
                     "Create New Editor Setting", "Input Dialog", null, "",
                     new InputValidator() {
                         // FIX:ダイアログが生成されたときはOKが有効になってる(押せはしない)けどどう直すの？
-                         public boolean checkInput(String inputString) {
-                             if (inputString == null || inputString.equals("")) { return false; }
-                             if (state.editorSetting.keySet().contains(inputString)) {return false;}
-                             try {
-                                 // TODO: キャプションに正規表現エラーってだす
-                                 Pattern.compile(inputString);
-                             }
-                             catch (Exception e) {
-                                 return false;
-                             }
-                             return true;
-                         }
-                         public boolean canClose(String inputString) { return true; }
-                     }
+                        public boolean checkInput(String inputString) {
+                            if (inputString == null || inputString.equals("")) { return false; }
+                            if (state.editorSetting.keySet().contains(inputString)) {return false;}
+                            try {
+                                // TODO: キャプションに正規表現エラーってだす
+                                Pattern.compile(inputString);
+                            }
+                            catch (Exception e) {
+                                return false;
+                            }
+                            return true;
+                        }
+                        public boolean canClose(String inputString) { return true; }
+                    }
             );
 
             if (editorName == null) {
@@ -227,6 +228,9 @@ public class IDEOMConfigPanel extends JComponent{
             String eventName = (String)eventNameComboBox.getSelectedItem();
             set_soundSetting(state.soundSetting.get(eventName));
             set_soundOptionEnable(state.soundSetting.get(eventName).useSound);
+            if (eventName.equals(SoundSetting.CONSOLEFILTER)) {
+                filterTextField.setEnabled(true);
+            }
         }
     }
 
@@ -251,6 +255,7 @@ public class IDEOMConfigPanel extends JComponent{
     private void set_soundOptionEnable(boolean b) {
         soundPath.setEnabled(b);
         soundPlayButton.setEnabled(b);
+        filterTextField.setEnabled(false);
         soundVolumeSlider.setEnabled(b);
     }
 
@@ -274,6 +279,7 @@ public class IDEOMConfigPanel extends JComponent{
         soundSetting.eventName = (String)this.eventNameComboBox.getSelectedItem();
         soundSetting.useSound = this.useSoundCheckBox.isSelected();
         soundSetting.soundPath = this.soundPath.getText();
+        soundSetting.consoleFilter = this.filterTextField.getText();
         soundSetting.soundVolume = this.soundVolumeSlider.getValue() / 100.0f;
 
         return soundSetting;
@@ -293,6 +299,7 @@ public class IDEOMConfigPanel extends JComponent{
     public void set_soundSetting(@NotNull SoundSetting soundSetting) {
         this.useSoundCheckBox.setSelected(soundSetting.useSound);
         this.soundPath.setText(soundSetting.soundPath);
+        this.filterTextField.setText(soundSetting.consoleFilter);
         this.soundVolumeSlider.setValue((int)(soundSetting.soundVolume * 100));
     }
 

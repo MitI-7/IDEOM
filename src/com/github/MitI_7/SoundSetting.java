@@ -8,6 +8,7 @@ public class SoundSetting {
     public String eventName = "";
     public boolean useSound = false;
     public String soundPath = "";
+    public String consoleFilter = "";
     public double soundVolume = 0.5;
 
 
@@ -21,6 +22,7 @@ public class SoundSetting {
         if (!this.eventName.equals(soundSetting.eventName)) {return false;}
         if (this.useSound != soundSetting.useSound) {return false;}
         if (!this.soundPath.equals(soundSetting.soundPath)) {return false;}
+        if (!this.soundPath.equals(soundSetting.consoleFilter)) {return false;}
         if (this.soundVolume != soundSetting.soundVolume) {return false;}
 
         return true;
@@ -30,7 +32,7 @@ public class SoundSetting {
     public static final String PROJECTOPEN = "Project Open";
     public static final String PROJECTCLOSE = "Project Close";
     public static final String RUN = "Run";
-    public static final String RUNERROR = "Run Error";
-    public static final List<String> eventNameList = asList(RUN, RUNERROR, PROJECTOPEN, PROJECTCLOSE);
+    public static final String CONSOLEFILTER = "Console Filter";
+    public static final List<String> eventNameList = asList(RUN, CONSOLEFILTER, PROJECTOPEN, PROJECTCLOSE);
 
 }

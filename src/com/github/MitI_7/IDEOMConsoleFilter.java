@@ -30,16 +30,15 @@ public class IDEOMConsoleFilter implements ConsoleFilterProvider {
     }
 
     class IDEOMFilter implements Filter {
-        // TODO: エラーパターンはたぶんもっと多いので都度で増やすか，もしくはユーザが指定できるようにする
-        private final String ERROR_PATTERN = ".*(Exception|SyntaxError|Traceback).*";
+        private final String filter_pattern = state.soundSetting.get(SoundSetting.CONSOLEFILTER).consoleFilter;
 
         @Override
         public Result applyFilter(String textLine, int endPoint) {
-            Pattern pattern = Pattern.compile(ERROR_PATTERN);
+            Pattern pattern = Pattern.compile(filter_pattern);
 
-            // FIX: コンソール中にERROR_PATTERNが何回もでるとその度に再生しちゃう・・・
+            // INFO: コンソール中にpatternが何回もでるとその度に再生しちゃう・・・
             if (pattern.matcher(textLine).find()) {
-                SoundSetting soundSetting = state.soundSetting.get(SoundSetting.RUNERROR);
+                SoundSetting soundSetting = state.soundSetting.get(SoundSetting.CONSOLEFILTER);
                 if (soundSetting.useSound) {
                     SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
                 }
