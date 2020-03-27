@@ -1,7 +1,7 @@
-<idea-plugin version="2">
+<idea-plugin>
   <id>com.github.MitI_7.IDEOM</id>
   <name>IDEOM</name>
-  <version>0.2.3</version>
+  <version>0.3</version>
   <vendor email="MitI_7@outlook.com" url="https://github.com/MitI-7/IDEOM">MitI_7</vendor>
 
   <description><![CDATA[
@@ -10,12 +10,13 @@
           <ul>
               <li>Adding background image in Editors.
               <li>Change icons at Editor.
-              <li>Plays sound at certain events(Run, Run Error, Open Project, Close Project).
+              <li>Plays sound at certain events(Run, Debug, Breakpoint, console, Open Project, Close Project).
           </ul>
       </p>
     ]]></description>
 
   <change-notes><![CDATA[
+      0.3    - Add sound events<br>
       0.2.3  - Remove file name restrictions<br>
       0.2.2  - Bug fix<br>
       0.2.1  - Bug fix<br>
