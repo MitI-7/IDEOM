@@ -25,8 +25,8 @@ public class IDEOMProjectPlugin implements ProjectComponent {
     public IDEOMProjectPlugin(Project project) {
         this.project = project;
 
-        MessageBusConnection conn = project.getMessageBus().connect();
-        conn.subscribe(XDebuggerManager.TOPIC, new XDebuggerManagerListener() {
+        // breakpoint
+        project.getMessageBus().connect().subscribe(XDebuggerManager.TOPIC, new XDebuggerManagerListener() {
             @Override
             public void processStarted(@NotNull XDebugProcess xDebugProcess) {
 
@@ -73,6 +73,29 @@ public class IDEOMProjectPlugin implements ProjectComponent {
             public void processStopped(@NotNull XDebugProcess debugProcess) {
             }
         });
+
+        // run/debug
+        project.getMessageBus().connect().subscribe(RunContentManager.TOPIC, new RunContentWithExecutorListener() {
+            @Override
+            public void contentSelected(@Nullable RunContentDescriptor runContentDescriptor, @NotNull Executor executor) {
+                if (executor.getActionName().equals("Run")) {
+                    SoundSetting soundSetting = state.soundSetting.get(SoundSetting.RUN);
+                    if (soundSetting.useSound) {
+                        SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
+                    }
+                }
+                else if (executor.getActionName().equals("Debug")) {
+                    SoundSetting soundSetting = state.soundSetting.get(SoundSetting.DEBUG);
+                    if (soundSetting.useSound) {
+                        SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
+                    }
+                }
+            }
+
+            @Override
+            public void contentRemoved(@Nullable RunContentDescriptor runContentDescriptor, @NotNull Executor executor) {
+            }
+        });
     }
 
     public void initComponent() {
@@ -97,29 +120,6 @@ public class IDEOMProjectPlugin implements ProjectComponent {
         if (soundSetting.useSound) {
             SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
         }
-
-        // run/debug
-        project.getMessageBus().connect().subscribe(RunContentManager.TOPIC, new RunContentWithExecutorListener() {
-            @Override
-            public void contentSelected(@Nullable RunContentDescriptor runContentDescriptor, @NotNull Executor executor) {
-                if (executor.getActionName().equals("Run")) {
-                    SoundSetting soundSetting = state.soundSetting.get(SoundSetting.RUN);
-                    if (soundSetting.useSound) {
-                        SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
-                    }
-                }
-                else if (executor.getActionName().equals("Debug")) {
-                    SoundSetting soundSetting = state.soundSetting.get(SoundSetting.DEBUG);
-                    if (soundSetting.useSound) {
-                        SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
-                    }
-                }
-            }
-
-            @Override
-            public void contentRemoved(@Nullable RunContentDescriptor runContentDescriptor, @NotNull Executor executor) {
-            }
-        });
     }
 
     @Override
