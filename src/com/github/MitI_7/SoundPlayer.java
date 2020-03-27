@@ -2,6 +2,10 @@ package com.github.MitI_7;
 
 import java.io.File;
 import javax.sound.sampled.*;
+
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationType;
+import com.intellij.notification.Notifications;
 import com.intellij.openapi.ui.Messages;
 
 
@@ -18,7 +22,9 @@ public class SoundPlayer {
             clip.start();
 
         } catch(Exception e) {
-            Messages.showErrorDialog(e.toString(), "Error in Playing Sound.");
+            Notifications.Bus.notify(
+                    new Notification("IDEOM", "IDEOM: Error in Playing Sound.", e.getMessage(), NotificationType.ERROR)
+            );
         }
     }
 }
