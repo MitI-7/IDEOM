@@ -88,7 +88,6 @@ public class IDEOMConfigPanel extends JComponent{
                 new FileChooserDescriptor(true, false, false, false, false, false)
         );
 
-
         /*
         sound
          */
@@ -105,6 +104,10 @@ public class IDEOMConfigPanel extends JComponent{
             @Override
             public void actionPerformed(ActionEvent e) {
                 set_soundOptionEnable(useSoundCheckBox.isSelected());
+                String eventName = (String)eventNameComboBox.getSelectedItem();
+                if (useSoundCheckBox.isSelected() && eventName.equals(SoundSetting.CONSOLEFILTER)) {
+                    filterTextField.setEnabled(true);
+                }
             }
         });
 
