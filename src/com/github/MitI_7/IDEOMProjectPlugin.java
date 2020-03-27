@@ -4,8 +4,13 @@ import com.intellij.execution.Executor;
 import com.intellij.execution.ui.RunContentDescriptor;
 import com.intellij.execution.ui.RunContentManager;
 import com.intellij.execution.ui.RunContentWithExecutorListener;
+import com.intellij.openapi.application.ReadAction;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.util.messages.MessageBusConnection;
+import com.intellij.xdebugger.*;
+import com.intellij.xdebugger.breakpoints.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,6 +24,55 @@ public class IDEOMProjectPlugin implements ProjectComponent {
 
     public IDEOMProjectPlugin(Project project) {
         this.project = project;
+
+        MessageBusConnection conn = project.getMessageBus().connect();
+        conn.subscribe(XDebuggerManager.TOPIC, new XDebuggerManagerListener() {
+            @Override
+            public void processStarted(@NotNull XDebugProcess xDebugProcess) {
+
+                xDebugProcess.getSession().addSessionListener(
+                        new XDebugSessionListener() {
+                            @Override
+                            public void sessionPaused() {
+                                SoundSetting soundSetting = state.soundSetting.get(SoundSetting.BREAKPOINT);
+                                if (soundSetting == null || !soundSetting.useSound) {
+                                    return;
+                                }
+
+                                XSourcePosition position = xDebugProcess.getSession().getCurrentPosition();
+                                if (position == null) {
+                                    return;
+                                }
+
+                                int line = position.getLine();
+                                VirtualFile file = position.getFile();
+
+                                final XBreakpoint<?>[] breakpoints = ReadAction.compute(() -> XDebuggerManager.getInstance(project).getBreakpointManager().getAllBreakpoints());
+
+                                for (XBreakpoint<?> breakpoint : breakpoints) {
+                                    if (breakpoint instanceof XLineBreakpoint) {
+                                        if (((XLineBreakpoint<?>)breakpoint).getFileUrl().equals(file.getUrl()) && ((XLineBreakpoint<?>) breakpoint).getLine() == line) {
+                                            if (breakpoint.isEnabled()) {
+                                                SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
+                                                return;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void sessionStopped() {
+
+                            }
+                        }
+                );
+            }
+
+            @Override
+            public void processStopped(@NotNull XDebugProcess debugProcess) {
+            }
+        });
     }
 
     public void initComponent() {
@@ -75,5 +129,4 @@ public class IDEOMProjectPlugin implements ProjectComponent {
             SoundPlayer.play(soundSetting.soundPath, soundSetting.soundVolume);
         }
     }
-
 }

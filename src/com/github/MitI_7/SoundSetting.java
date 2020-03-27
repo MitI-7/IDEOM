@@ -33,7 +33,8 @@ public class SoundSetting {
     public static final String DEBUG = "Debug";
     public static final String PROJECTOPEN = "Project Open";
     public static final String PROJECTCLOSE = "Project Close";
+    public static final String BREAKPOINT = "Breakpoint";
     public static final String CONSOLEFILTER = "Console Filter";
-    public static final List<String> eventNameList = asList(RUN, DEBUG, CONSOLEFILTER, PROJECTOPEN, PROJECTCLOSE);
+    public static final List<String> eventNameList = asList(RUN, DEBUG, CONSOLEFILTER, PROJECTOPEN, BREAKPOINT, PROJECTCLOSE);
 
 }

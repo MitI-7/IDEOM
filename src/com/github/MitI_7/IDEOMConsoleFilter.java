@@ -22,7 +22,7 @@ public class IDEOMConsoleFilter implements ConsoleFilterProvider {
     }
 
     class IDEOMFilter implements Filter {
-        private final String filter_pattern = state.soundSetting.get(SoundSetting.CONSOLEFILTER).consoleFilter;
+        private final String filter_pattern = state.soundSetting.getOrDefault(SoundSetting.CONSOLEFILTER, new SoundSetting()).consoleFilter;
 
         @Override
         public Result applyFilter(String textLine, int endPoint) {

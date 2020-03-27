@@ -1,10 +1,7 @@
 package com.github.MitI_7;
 
 import com.intellij.ide.IconProvider;
-import com.intellij.notification.Notification;
-import com.intellij.notification.NotificationType;
 import com.intellij.openapi.Disposable;
-import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
@@ -19,10 +16,8 @@ import javax.swing.border.Border;
 
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.wm.ex.ToolWindowManagerListener;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import com.jcraft.jsch.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
